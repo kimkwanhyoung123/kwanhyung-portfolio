@@ -20,7 +20,7 @@ export const experience: ExperienceEntry[] = [
     id: "geospatial-academy",
     tabLabel: "공간정보 아카데미",
     role: "Application Developer @ 공간정보 아카데미",
-    period: "2023.09 ~ 2024.02",
+    period: "2023.06 ~ 2023.11",
     bullets: [
       "러닝 크루의 실제 사용 시나리오를 분석해 위치 기반 모바일 서비스로 구현했습니다.",
       "사용자 이동 경로와 구성원 위치를 실시간으로 지도에 표출했습니다.",

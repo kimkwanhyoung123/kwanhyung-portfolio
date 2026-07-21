@@ -12,11 +12,7 @@ export default function Hero() {
     >
       <Container>
         <Reveal>
-          <p className="font-mono text-sm text-accent">{profile.greeting}</p>
-        </Reveal>
-
-        <Reveal delay={0.05}>
-          <h1 className="mt-4 text-4xl font-bold text-foreground sm:text-6xl">
+          <h1 className="text-4xl font-bold text-foreground sm:text-6xl">
             {profile.nameKo}
           </h1>
           <p className="mt-2 font-inter text-lg text-muted sm:text-xl">

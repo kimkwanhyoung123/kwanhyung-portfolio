@@ -6,7 +6,6 @@ import type {
 } from "@/types/portfolio";
 
 export const profile: Profile = {
-  greeting: "안녕하세요. 저는 김관형입니다.",
   nameKo: "김관형",
   nameEn: "Kwan Hyung Kim",
   headline: "복잡한 현장 문제를 실제로 동작하는 소프트웨어로 전환합니다.",

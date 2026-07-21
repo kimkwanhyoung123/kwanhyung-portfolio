@@ -12,7 +12,6 @@ export interface HeroCta {
 }
 
 export interface Profile {
-  greeting: string;
   nameKo: string;
   nameEn: string;
   headline: string;

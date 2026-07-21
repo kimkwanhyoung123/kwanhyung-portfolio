@@ -306,7 +306,7 @@ export const securityResearchProjects: OtherProject[] = [
     id: "ctf-security-challenges",
     titleKo: "CTF Security Challenges",
     description:
-      "제한된 정보와 복잡한 실행 환경에서 시스템 구조와 취약 가능성을 추론하고, 공격 경로를 구성해 총 4개의 보안 문제를 해결했습니다. 애플리케이션의 입력값·권한 구조·데이터 처리 흐름을 분석하고 가설 수립과 반복 검증을 통해 문제를 해결했습니다.",
+      "Dreamhack CTF Season 8 Round #4 (Crypto, 주관: Teori)에 참가해, 제한된 정보와 복잡한 실행 환경에서 시스템 구조와 취약 가능성을 추론하고 공격 경로를 구성해 총 4개의 보안 문제를 해결했습니다. 애플리케이션의 입력값·권한 구조·데이터 처리 흐름을 분석하고 가설 수립과 반복 검증을 통해 문제를 해결했습니다.",
     keyExperience: [
       "제한된 정보에서 시스템 구조 추론",
       "코드·데이터 흐름 분석",
@@ -330,13 +330,9 @@ export const securityResearchProjects: OtherProject[] = [
       },
     ],
     metrics: [
+      { label: "Competition", value: "Dreamhack S8 R4 · Crypto" },
       { label: "Final Rank", value: "28 / 307" },
       { label: "Challenges Solved", value: "4" },
-      {
-        label: "Approach",
-        value:
-          "Static Analysis / Debugging / Log Investigation / Hypothesis Testing",
-      },
     ],
   },
 ];
