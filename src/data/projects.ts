@@ -283,12 +283,12 @@ export const securityResearchProjects: OtherProject[] = [
     visualType: "screenshot",
     images: [
       {
-        src: "/images/ctf/ctf-ranking.png",
+        src: "/images/ctf/ctf-result.png",
         alt: "CTF 대회 공개 순위 화면 캡처",
       },
     ],
     metrics: [
-      { label: "Final Rank", value: "00 / 000" },
+      { label: "Final Rank", value: "28 / 307" },
       { label: "Challenges Solved", value: "4" },
       {
         label: "Approach",
