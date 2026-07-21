@@ -1,7 +1,7 @@
 import type { SkillGroups } from "@/types/portfolio";
 
 export const skills: SkillGroups = {
-  languages: ["C#", "C++", "Python", "Java"],
+  languages: ["C#", "C++", "Python", "Java", "TypeScript"],
   engineering: [
     "System Integration",
     "Data Pipeline",
@@ -15,6 +15,8 @@ export const skills: SkillGroups = {
     "GDAL",
     "OpenCV",
     "WinForms",
+    "React / Next.js",
+    "Tailwind CSS",
     "Spatial Data",
     "Git",
     "Visual Studio",

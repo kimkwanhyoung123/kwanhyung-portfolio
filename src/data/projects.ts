@@ -41,6 +41,10 @@ export const featuredProjects: FeaturedProject[] = [
       src: "/images/diagrams/hyperspectral-pipeline.png",
       alt: "초분광 영상처리 데이터 파이프라인 개념도",
     },
+    metric: {
+      label: "Pipeline Consolidation",
+      value: "분리된 도구·수작업 → 7단계 단일 파이프라인",
+    },
     disclaimerNote:
       "실제 업무 경험을 일반화해 재구성한 개념도이며, 회사의 실제 내부 설계와 제품 화면은 포함하지 않았습니다.",
   },
@@ -134,6 +138,10 @@ export const featuredProjects: FeaturedProject[] = [
       src: "/images/diagrams/satellite-data-flow.png",
       alt: "위성영상 시계열 분석 시스템 흐름도",
     },
+    metric: {
+      label: "Unified View",
+      value: "다중 시기 영상·분석·공간정보를 단일 화면으로 통합",
+    },
     disclaimerNote:
       "제품명·고객기관명·실제 촬영지역·데이터 구조는 표시하지 않습니다.",
   },
@@ -208,6 +216,40 @@ export const otherProjects: OtherProject[] = [
         src: "/images/running-app/aed-alert.png",
         alt: "추락 감지 시 주변 AED 위치 안내 화면",
       },
+    ],
+  },
+  {
+    id: "portfolio-web",
+    titleKo: "포트폴리오 웹사이트 설계·구현",
+    titleEn: "Portfolio Website",
+    description:
+      "이 포트폴리오 사이트를 직접 설계하고 구현했습니다. 콘텐츠를 데이터 계층과 UI 컴포넌트로 분리해 유지보수가 쉬운 구조로 만들고, 반응형 레이아웃·접근성·성능을 고려해 정적 사이트로 배포했습니다. 프로젝트 다이어그램과 UI 목업도 코드로 직접 생성했습니다.",
+    keyExperience: [
+      "정보 구조 설계",
+      "데이터·UI 컴포넌트 분리",
+      "반응형 레이아웃",
+      "접근성 처리",
+      "정적 사이트 배포",
+      "CI 연동 자동 배포",
+    ],
+    technologies: [
+      "TypeScript",
+      "React",
+      "Next.js",
+      "Tailwind CSS",
+      "Vercel",
+    ],
+    visualType: "diagram",
+    images: [
+      {
+        src: "/images/diagrams/portfolio-web.png",
+        alt: "포트폴리오 웹사이트 구조와 기술 스택 개념도",
+      },
+    ],
+    metrics: [
+      { label: "Stack", value: "Next.js / TS" },
+      { label: "Deploy", value: "Vercel CI" },
+      { label: "Rendering", value: "Static" },
     ],
   },
 ];

@@ -22,12 +22,6 @@ export const profile: Profile = {
       variant: "secondary",
       external: true,
     },
-    {
-      label: "PDF 포트폴리오",
-      href: "/portfolio/kim-kwanhyung-portfolio.pdf",
-      variant: "secondary",
-      external: true,
-    },
   ],
   aboutParagraphs: [
     "저는 복잡한 도메인과 모호한 요구사항을 빠르게 이해하고, 이를 실제 사용 가능한 소프트웨어로 구현하는 엔지니어입니다.",
@@ -86,16 +80,6 @@ export const contact: ContactContent = {
     {
       label: "LinkedIn",
       href: "https://www.linkedin.com/in/kwanhyoungkim",
-      external: true,
-    },
-    {
-      label: "이력서 PDF",
-      href: "/resume/kim-kwanhyung-resume.pdf",
-      external: true,
-    },
-    {
-      label: "포트폴리오 PDF",
-      href: "/portfolio/kim-kwanhyung-portfolio.pdf",
       external: true,
     },
   ],

@@ -27,9 +27,11 @@ const description =
   "복잡한 현장 문제를 실제로 동작하는 소프트웨어로 전환하는 Forward Deployed Engineer, 김관형의 포트폴리오입니다.";
 
 export const metadata: Metadata = {
-  // Update to the production domain once deployed to Vercel; needed to resolve the OG image URL below.
+  // Absolute base used to resolve the OG image URL below. Defaults to the
+  // production domain so share previews work even when the env var is unset.
   metadataBase: new URL(
-    process.env.NEXT_PUBLIC_SITE_URL ?? "http://localhost:3000",
+    process.env.NEXT_PUBLIC_SITE_URL ??
+      "https://kwanhyung-portfolio.vercel.app",
   ),
   title,
   description,
