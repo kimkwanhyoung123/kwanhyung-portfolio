@@ -76,6 +76,11 @@ export interface FeaturedProject {
 
 export type OtherProjectVisualType = "diagram" | "screenshot";
 
+export interface ProjectLink {
+  label: string;
+  href: string;
+}
+
 export interface OtherProject {
   id: string;
   titleKo: string;
@@ -88,6 +93,7 @@ export interface OtherProject {
   processFlow?: string[];
   deliverables?: string[];
   metrics?: ProjectMetric[];
+  links?: ProjectLink[];
   disclaimerNote?: string;
 }
 

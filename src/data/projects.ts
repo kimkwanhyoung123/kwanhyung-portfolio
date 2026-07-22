@@ -149,6 +149,40 @@ export const featuredProjects: FeaturedProject[] = [
 
 export const otherProjects: OtherProject[] = [
   {
+    id: "security-triage-agent",
+    titleKo: "보안 인시던트 트리아지 AI 에이전트",
+    titleEn: "Security Incident Triage Agent",
+    description:
+      "보안 알림을 받아 읽기전용 도구로 로그를 조사하고, 공격 체인을 재구성해 스키마로 검증된 트리아지 리포트(정탐/오탐·심각도·근본원인)를 생성하는 멀티스텝 LangGraph 에이전트입니다. 가드레일·관측성·평가(eval)를 포함하며, 로컬 LLM(Ollama)로 완전히 오프라인 실행됩니다. CTF·버그바운티에서 하던 로그 기반 가설 수립과 근본원인 추적을 에이전트 엔지니어링으로 확장했습니다.",
+    keyExperience: [
+      "LangGraph ReAct 에이전트 설계",
+      "멀티스텝 tool-use",
+      "가드레일(읽기전용·반복상한·스키마검증)",
+      "관측성(토큰·지연·트레이스)",
+      "평가(eval) 하니스",
+      "로컬 LLM 오프라인 실행",
+    ],
+    technologies: ["Python", "LangGraph", "Ollama", "Pydantic", "pytest"],
+    visualType: "diagram",
+    images: [
+      {
+        src: "/images/diagrams/security-agent.png",
+        alt: "보안 인시던트 트리아지 에이전트 아키텍처 개념도",
+      },
+    ],
+    metrics: [
+      { label: "Agent", value: "LangGraph ReAct" },
+      { label: "Runtime", value: "Local LLM" },
+      { label: "Eval", value: "2/3 · 3/3" },
+    ],
+    links: [
+      {
+        label: "GitHub",
+        href: "https://github.com/kimkwanhyoung123/security-incident-triage-agent",
+      },
+    ],
+  },
+  {
     id: "gcp-chip-management-module",
     titleKo: "GCP Chip 데이터 관리 모듈",
     titleEn: "GCP Chip Management Module",

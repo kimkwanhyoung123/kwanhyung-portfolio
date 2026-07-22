@@ -45,3 +45,6 @@ next-env.d.ts
 
 .vercel
 .env*
+
+# standalone python side-project (kept out of the Next.js portfolio repo)
+/security-triage-agent

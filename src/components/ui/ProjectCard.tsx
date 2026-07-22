@@ -89,6 +89,25 @@ export default function ProjectCard({ project }: ProjectCardProps) {
         {project.technologies.join(" · ")}
       </p>
 
+      {project.links ? (
+        <ul className="mt-4 flex flex-wrap gap-4">
+          {project.links.map((link) => (
+            <li key={link.href}>
+              <a
+                href={link.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-1 font-mono text-xs text-accent underline-offset-4 hover:underline focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent"
+              >
+                {link.label}
+                <span aria-hidden>↗</span>
+                <span className="sr-only"> (새 창에서 열림)</span>
+              </a>
+            </li>
+          ))}
+        </ul>
+      ) : null}
+
       {project.disclaimerNote ? (
         <p className="mt-4 text-xs italic text-muted">
           {project.disclaimerNote}
