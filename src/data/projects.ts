@@ -171,9 +171,9 @@ export const otherProjects: OtherProject[] = [
       },
     ],
     metrics: [
-      { label: "Agent", value: "LangGraph ReAct" },
-      { label: "Runtime", value: "Local LLM" },
-      { label: "Eval", value: "2/3 · 3/3" },
+      { label: "Eval accuracy", value: "2/3 → 3/3" },
+      { label: "Read-only tools", value: "5" },
+      { label: "Latency", value: "~15s / alert" },
     ],
     links: [
       {
@@ -297,40 +297,6 @@ export const otherProjects: OtherProject[] = [
       growth:
         "센서·위치처럼 노이즈가 많은 실데이터를 다루며 '정확도 vs 배터리·오탐' 같은 현실적 트레이드오프를 조정하는 감각을 길렀습니다.",
     },
-  },
-  {
-    id: "portfolio-web",
-    titleKo: "포트폴리오 웹사이트 설계·구현",
-    titleEn: "Portfolio Website",
-    description:
-      "이 포트폴리오 사이트를 직접 설계하고 구현했습니다. 콘텐츠를 데이터 계층과 UI 컴포넌트로 분리해 유지보수가 쉬운 구조로 만들고, 반응형 레이아웃·접근성·성능을 고려해 정적 사이트로 배포했습니다. 프로젝트 다이어그램과 UI 목업도 코드로 직접 생성했습니다.",
-    keyExperience: [
-      "정보 구조 설계",
-      "데이터·UI 컴포넌트 분리",
-      "반응형 레이아웃",
-      "접근성 처리",
-      "정적 사이트 배포",
-      "CI 연동 자동 배포",
-    ],
-    technologies: [
-      "TypeScript",
-      "React",
-      "Next.js",
-      "Tailwind CSS",
-      "Vercel",
-    ],
-    visualType: "diagram",
-    images: [
-      {
-        src: "/images/diagrams/portfolio-web.png",
-        alt: "포트폴리오 웹사이트 구조와 기술 스택 개념도",
-      },
-    ],
-    metrics: [
-      { label: "Stack", value: "Next.js / TS" },
-      { label: "Deploy", value: "Vercel CI" },
-      { label: "Rendering", value: "Static" },
-    ],
   },
 ];
 
