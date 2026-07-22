@@ -241,6 +241,10 @@ export const otherProjects: OtherProject[] = [
       "데이터베이스 구조",
       "품질평가 데이터 관리",
     ],
+    metrics: [
+      { label: "데이터 관리 기능", value: "6종 (CRUD·품질평가)" },
+      { label: "설계 산출물", value: "5종 (유스케이스~품질평가)" },
+    ],
     disclaimerNote:
       "실제 테이블명·컬럼명·내부 문서·고객 요구사항은 공개하지 않습니다.",
   },
@@ -259,6 +263,10 @@ export const otherProjects: OtherProject[] = [
       "주변 AED 위치 안내",
     ],
     technologies: ["Java", "Android Studio", "Location API", "Spatial Data"],
+    metrics: [
+      { label: "핵심 기능", value: "3종 (위치공유·낙상감지·AED)" },
+      { label: "플랫폼", value: "Android (Java)" },
+    ],
     visualType: "screenshot",
     images: [
       {
