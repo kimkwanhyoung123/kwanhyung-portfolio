@@ -69,7 +69,7 @@ HOME
 - 이름: 김관형 / Kwan Hyung Kim
 - 메인 헤드라인: 복잡한 현장 문제를 실제로 동작하는 소프트웨어로 전환합니다.
 - 소개 문구 1: 고객과 사용자의 요구사항을 구체적인 기술 과제로 정의하고, C#과 C++ 기반 영상처리 시스템과 데이터 파이프라인을 설계·구현해 왔습니다.
-- 소개 문구 2: 공간정보, 위성·드론·초분광 데이터처럼 복잡한 도메인을 빠르게 이해하고, 기존 시스템과의 연동부터 성능 개선, 검증과 배포까지 제품 개발 전 과정을 수행합니다.
+- 소개 문구 2: 대용량 영상과 공간정보 데이터처럼 복잡한 도메인을 빠르게 이해하고, 기존 시스템과의 연동부터 성능 개선, 검증과 배포까지 제품 개발 전 과정을 수행합니다.
 - 버튼: [대표 프로젝트 보기] (가장 크게 배치), [GitHub], [PDF 포트폴리오]
 
 ---
@@ -80,7 +80,7 @@ HOME
 
 1. 저는 복잡한 도메인과 모호한 요구사항을 빠르게 이해하고, 이를 실제 사용 가능한 소프트웨어로 구현하는 엔지니어입니다.
 
-2. 현재 3DLabs에서 공공·연구 기관이 사용하는 위성·드론·초분광 영상처리 소프트웨어를 개발하고 있습니다. 사용자 요구사항을 분석해 기능과 데이터 흐름을 설계하고, C# UI와 C++ 처리 모듈, 공간정보 데이터와 외부 실행 프로그램을 하나의 제품으로 통합해 왔습니다.
+2. 현재 3DLabs에서 공공·연구 기관이 사용하는 영상처리 소프트웨어를 개발하고 있습니다. 사용자 요구사항을 분석해 기능과 데이터 흐름을 설계하고, C# UI와 C++ 처리 모듈, 공간정보 데이터와 외부 실행 프로그램을 하나의 제품으로 통합해 왔습니다.
 
 3. 단순히 전달받은 기능을 구현하는 데 그치지 않고, 실제 업무 흐름에서 무엇이 문제인지 파악하고 기술적 해결책으로 구체화하는 과정을 중요하게 생각합니다. 성능 저하, 데이터 오차, 좌표계 문제와 배포 환경 차이 같은 문제를 직접 재현하고 원인을 추적해 왔습니다.
 
@@ -93,7 +93,7 @@ HOME
 - **Problem Framing** — 모호한 업무 요구사항을 기능, 데이터 흐름, 처리 단계와 기술 지표로 구체화합니다.
 - **End-to-End Delivery** — 요구사항 분석부터 설계, 구현, 통합, 테스트와 배포까지 전 과정을 수행합니다.
 - **System Integration** — C# UI, C++ 처리 엔진, 공간정보 데이터, 외부 실행 모듈과 기존 시스템을 연결합니다.
-- **Domain Adaptation** — 위성, 드론, 초분광, 공간정보와 보안 등 새로운 도메인을 빠르게 학습합니다.
+- **Domain Adaptation** — 영상처리, 공간정보와 보안 등 새로운 도메인을 빠르게 학습합니다.
 - **Root-Cause Analysis** — 오류와 성능 저하를 재현하고 로그, 코드, 데이터와 실행 환경을 기반으로 원인을 추적합니다.
 - **Customer-Oriented Engineering** — 기술적으로 구현 가능한 기능보다 사용자의 실제 업무에서 활용할 수 있는 결과를 우선합니다.
 
@@ -117,7 +117,7 @@ About 섹션에는 다음 8개만 우선 표시: `C#`, `C++`, `Python`, `DirectX
 
 - 공공·연구 기관의 요구사항을 분석해 영상처리 기능과 데이터 흐름으로 구체화했습니다.
 - C# UI와 C++ 영상처리 엔진, 외부 처리 프로그램을 하나의 제품으로 통합했습니다.
-- 위성·드론·초분광 영상의 전처리, 분석과 시각화 파이프라인을 구현했습니다.
+- 대용량 영상의 전처리, 분석과 시각화 파이프라인을 구현했습니다.
 - DirectX 11 기반 렌더링 구조를 구축해 대용량 영상 표출 성능을 개선했습니다.
 - 고객 환경에서 발생하는 DLL, 좌표계와 배포 오류를 재현하고 원인을 해결했습니다.
 - 개발 결과를 설계서, 처리 흐름도, 시험 절차와 사용자 문서로 정리했습니다.
@@ -151,13 +151,13 @@ Result           → 무엇이 개선됐는가
 
 ---
 
-## 11. Featured Project 1 — 초분광 영상처리 및 분석 플랫폼 (Hyperspectral Image Processing Platform)
+## 11. Featured Project 1 — 영상처리 및 분석 플랫폼 (Image Processing & Analysis Platform)
 
-- **Business Context**: 초분광 센서로 수집한 데이터를 분석하기 위해 여러 개의 처리 도구와 수작업 절차를 사용하고 있었습니다.
+- **Business Context**: 여러 센서로 수집한 영상 데이터를 분석하기 위해 여러 개의 처리 도구와 수작업 절차를 사용하고 있었습니다.
 - **Problem**: 센서별 데이터 형식이 다르고, 전처리부터 분석과 결과 확인까지의 과정이 분리되어 있어 사용자가 전체 작업 흐름을 관리하기 어려웠습니다.
 - **My Role**: 사용자 요구사항 분석, 처리 단계 정의, C# UI와 C++ 처리 엔진 연동, 영상 표출과 분석 기능 구현을 담당했습니다.
 - **Solution**: 메타데이터 표준화, 기하보정, 모자이크, 반사율 변환, 식생지수와 이상치 분석을 하나의 데이터 파이프라인으로 통합했습니다.
-- **Integration**: 여러 계열의 초분광 센서 데이터, GDAL 기반 공간정보 처리, C++ 영상처리 모듈과 C# 애플리케이션을 연결했습니다.
+- **Integration**: 여러 계열의 센서 영상 데이터, GDAL 기반 공간정보 처리, C++ 영상처리 모듈과 C# 애플리케이션을 연결했습니다.
 - **Result**: 사용자는 하나의 소프트웨어에서 데이터 처리, 결과 확인과 픽셀 스펙트럼 분석까지 연속적으로 수행할 수 있게 됐습니다.
 
 핵심 기여: C# UI ↔ C++ 영상처리 모듈 인터페이스 설계 / 센서별 메타데이터 표준화 / ENVI BIL Float32 데이터 입출력 / 반사율 변환과 식생지수 계산 / RGB·단일 밴드 영상 표출 / 픽셀 스펙트럼 분석 / 영상 좌표 ↔ UTM 좌표 변환
@@ -177,7 +177,7 @@ Raw Sensor Data → Metadata Standardization → Geometric Correction → Mosaic
 
 ## 12. Featured Project 2 — DirectX 11 기반 대용량 영상 렌더링 엔진 (DirectX 11 Image Rendering Engine)
 
-- **Business Context**: 사용자는 수 GB 규모의 위성 및 초분광 영상을 확대·축소하며 세부 지역을 분석해야 했습니다.
+- **Business Context**: 사용자는 수 GB 규모의 대용량 영상을 확대·축소하며 세부 지역을 분석해야 했습니다.
 - **Problem**: 기존 렌더링 구조에서는 대용량 영상 이동과 확대·축소 시 화면 지연이 발생해 분석 업무의 흐름이 끊겼습니다.
 - **My Role**: 기존 구조 분석, 병목 구간 식별, DirectX 11 렌더링 엔진 설계와 C# 애플리케이션 연동을 담당했습니다.
 - **Solution**: ROI와 Overview를 활용해 현재 화면에 필요한 데이터만 선택적으로 읽고, GPU 기반으로 렌더링하도록 구조를 변경했습니다.
@@ -201,13 +201,13 @@ Raw Sensor Data → Metadata Standardization → Geometric Correction → Mosaic
 
 ---
 
-## 13. Featured Project 3 — 위성영상 시계열 분석·표출 시스템 (Satellite Time-Series Analysis Viewer)
+## 13. Featured Project 3 — 영상 시계열 분석·표출 시스템 (Image Time-Series Analysis Viewer)
 
-- **Business Context**: 사용자는 서로 다른 시기에 촬영된 위성영상과 분석 결과를 비교해 지역 변화를 확인해야 했습니다.
+- **Business Context**: 사용자는 서로 다른 시기에 촬영된 영상과 분석 결과를 비교해 지역 변화를 확인해야 했습니다.
 - **Problem**: 시기별 데이터가 분리되어 있어 변화 양상을 연속적으로 파악하기 어려웠고, 영상과 시설물 정보를 함께 비교하기도 어려웠습니다.
 - **My Role**: 다중 시기 데이터 구조 설계, 조회와 표출 기능 구현, 영상과 공간정보 레이어의 동기화를 담당했습니다.
 - **Solution**: 여러 시기의 영상 데이터를 하나의 시계열로 구성하고, 사용자가 시점과 지역을 선택해 변화 결과를 조회할 수 있도록 구현했습니다.
-- **Integration**: 위성영상, 분석 결과, 시설물 공간정보와 기존 데스크톱 뷰어를 하나의 사용자 흐름으로 통합했습니다.
+- **Integration**: 영상, 분석 결과, 시설물 공간정보와 기존 데스크톱 뷰어를 하나의 사용자 흐름으로 통합했습니다.
 - **Result**: 사용자가 여러 데이터와 프로그램을 오가지 않고 하나의 화면에서 시계열 변화와 공간정보를 함께 확인할 수 있게 했습니다.
 
 핵심 기여: 다중 시기 영상 데이터 구성 / 시계열 조회·비교 기능 / 영상·공간정보 레이어 중첩 / 화면 ↔ 지도 좌표 동기화 / 분석 결과 조회 UI / 데이터 유효성 검증 / 납품 환경 오류 대응
@@ -217,7 +217,7 @@ Raw Sensor Data → Metadata Standardization → Geometric Correction → Mosaic
 시각자료: 실제 SW UI 사용 금지. 일반화된 시스템 흐름도를 제작.
 
 ```
-Multi-Date Satellite Images → Metadata Validation → Time-Series Dataset
+Multi-Date Images → Metadata Validation → Time-Series Dataset
 → Spatial Layer Integration → Date / Region Selection → Change Analysis Visualization
 ```
 
@@ -227,11 +227,11 @@ Multi-Date Satellite Images → Metadata Validation → Time-Series Dataset
 
 ## 14. Other Projects
 
-카드 순서: 1) GCP Chip 데이터 관리 모듈  2) Bug Bounty Security Research  3) CTF Security Challenges  4) 크루 기반 러닝 애플리케이션
+카드 순서: 1) 데이터 관리 모듈 설계  2) Bug Bounty Security Research  3) CTF Security Challenges  4) 크루 기반 러닝 애플리케이션
 
-### GCP Chip 데이터 관리 모듈 (GCP Chip Management Module)
+### 데이터 관리 모듈 설계 (Data Management Module Design)
 
-GCP Chip 데이터의 조회·생성·등록·갱신·삭제·품질평가 업무를 분석하고, 이를 유스케이스·데이터 흐름·데이터베이스 구조로 구체화했습니다. 사용자 업무 흐름을 기능 단위로 분해하고, 화면 정의·데이터 처리 순서·품질평가 항목·테이블 구조를 설계했습니다.
+관리 대상 데이터의 조회·생성·등록·갱신·삭제·품질평가 업무를 분석하고, 이를 유스케이스·데이터 흐름·데이터베이스 구조로 구체화했습니다. 사용자 업무 흐름을 기능 단위로 분해하고, 화면 정의·데이터 처리 순서·품질평가 항목·테이블 구조를 설계했습니다.
 
 핵심 경험: 요구사항 분석 / 유스케이스 설계 / 데이터 흐름도 작성 / 데이터베이스 설계 / 화면 처리 흐름 정의 / 품질평가 데이터 구조 설계
 
@@ -302,10 +302,10 @@ Approach           Static Analysis / Debugging / Log Investigation / Hypothesis 
 
 | 프로젝트 | 사용할 시각자료 |
 | --- | --- |
-| 초분광 영상처리 플랫폼 | 일반화된 데이터 파이프라인 |
+| 영상처리 플랫폼 | 일반화된 데이터 파이프라인 |
 | DirectX 렌더링 엔진 | Before / After 구조 비교 |
-| 위성영상 시계열 시스템 | 일반화된 시스템 흐름도 |
-| GCP Chip 관리 모듈 | 일반화된 설계 프로세스 |
+| 영상 시계열 시스템 | 일반화된 시스템 흐름도 |
+| 데이터 관리 모듈 | 일반화된 설계 프로세스 |
 | 버그바운티 | 분석·재현·보고 프로세스 |
 | CTF | 공개 순위 화면 캡처 |
 | 러닝 애플리케이션 | 실제 앱 화면 캡처 |
@@ -369,10 +369,10 @@ kwanhyung-portfolio/
 ├─ public/
 │  ├─ images/
 │  │  ├─ diagrams/
-│  │  │  ├─ hyperspectral-pipeline.png
+│  │  │  ├─ image-pipeline.png
 │  │  │  ├─ directx-before-after.png
-│  │  │  ├─ satellite-data-flow.png
-│  │  │  ├─ gcp-chip-process.png
+│  │  │  ├─ image-time-series.png
+│  │  │  ├─ data-module-process.png
 │  │  │  └─ bug-bounty-process.png
 │  │  ├─ ctf/
 │  │  │  └─ ctf-ranking.png
@@ -464,9 +464,9 @@ Include role, period, concise bullets. Keyboard navigation + mobile horizontal s
 ### 5단계: Featured Projects  (spec §11–§13, §16)
 ```
 Implement Featured Projects with an alternating layout.
-1. Hyperspectral Image Processing Platform
+1. Image Processing & Analysis Platform
 2. DirectX 11 Image Rendering Engine
-3. Satellite Time-Series Analysis Viewer
+3. Image Time-Series Analysis Viewer
 Use generalized diagrams only. No company software screenshots.
 Each project shows: Business context, Problem, My role, Solution, Integration, Result, Technology, Confidentiality note.
 ```
@@ -474,7 +474,7 @@ Each project shows: Business context, Problem, My role, Solution, Integration, R
 ### 6단계: Other Projects  (spec §14)
 ```
 Implement Other Projects as a responsive card grid:
-1. GCP Chip Management Module — generalized design-process diagram
+1. Data Management Module Design — generalized design-process diagram
 2. Bug Bounty Security Research — generalized research-process diagram
 3. CTF Security Challenges — real ranking screenshot
 4. Crew Running Application — real app screenshots

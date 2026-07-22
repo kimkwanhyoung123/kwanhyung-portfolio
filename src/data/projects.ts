@@ -2,44 +2,44 @@ import type { FeaturedProject, OtherProject } from "@/types/portfolio";
 
 export const featuredProjects: FeaturedProject[] = [
   {
-    id: "hyperspectral-platform",
-    slug: "hyperspectral-image-processing-platform",
-    titleKo: "초분광 영상처리 및 분석 플랫폼",
-    titleEn: "Hyperspectral Image Processing Platform",
+    id: "image-processing-platform",
+    slug: "image-processing-platform",
+    titleKo: "영상처리 및 분석 플랫폼",
+    titleEn: "Image Processing & Analysis Platform",
     businessContext:
-      "초분광 센서로 수집한 데이터를 분석하기 위해 여러 개의 처리 도구와 수작업 절차를 사용하고 있었습니다.",
+      "여러 센서로 수집한 영상 데이터를 분석하기 위해 여러 개의 처리 도구와 수작업 절차를 사용하고 있었습니다.",
     problem:
       "센서별 데이터 형식이 다르고, 전처리부터 분석과 결과 확인까지의 과정이 분리되어 있어 사용자가 전체 작업 흐름을 관리하기 어려웠습니다.",
     myRole:
       "사용자 요구사항 분석, 처리 단계 정의, C# UI와 C++ 처리 엔진 연동, 영상 표출과 분석 기능 구현을 담당했습니다.",
     solution:
-      "메타데이터 표준화, 기하보정, 모자이크, 반사율 변환, 식생지수와 이상치 분석을 하나의 데이터 파이프라인으로 통합했습니다.",
+      "메타데이터 표준화, 기하보정, 모자이크, 영상 보정, 지표·이상치 분석을 하나의 데이터 파이프라인으로 통합했습니다.",
     integration:
-      "여러 계열의 초분광 센서 데이터, GDAL 기반 공간정보 처리, C++ 영상처리 모듈과 C# 애플리케이션을 연결했습니다.",
+      "여러 계열의 센서 영상 데이터, GDAL 기반 공간정보 처리, C++ 영상처리 모듈과 C# 애플리케이션을 연결했습니다.",
     result:
-      "사용자는 하나의 소프트웨어에서 데이터 처리, 결과 확인과 픽셀 스펙트럼 분석까지 연속적으로 수행할 수 있게 됐습니다.",
+      "사용자는 하나의 소프트웨어에서 데이터 처리, 결과 확인과 픽셀 단위 분석까지 연속적으로 수행할 수 있게 됐습니다.",
     keyContributions: [
       "C# UI ↔ C++ 영상처리 모듈 인터페이스 설계",
       "센서별 메타데이터 표준화",
-      "ENVI BIL Float32 데이터 입출력",
-      "반사율 변환과 식생지수 계산",
-      "RGB·단일 밴드 영상 표출",
-      "픽셀 스펙트럼 분석",
-      "영상 좌표 ↔ UTM 좌표 변환",
+      "대용량 영상 포맷 입출력",
+      "영상 보정과 지표 분석 계산",
+      "RGB·단일 채널 영상 표출",
+      "픽셀 단위 값 분석",
+      "영상 좌표 ↔ 지리 좌표 변환",
     ],
-    technologies: ["C#", "C++", "GDAL", "OpenCV", "WinForms", "ENVI"],
+    technologies: ["C#", "C++", "GDAL", "OpenCV", "WinForms"],
     processFlow: [
-      "Raw Sensor Data",
+      "Raw Image Data",
       "Metadata Standardization",
       "Geometric Correction",
       "Mosaic",
-      "Reflectance Conversion",
-      "Vegetation Index / Anomaly Analysis",
-      "Viewer & Spectrum Analysis",
+      "Image Normalization",
+      "Feature / Anomaly Analysis",
+      "Viewer & Pixel Analysis",
     ],
     diagram: {
-      src: "/images/diagrams/hyperspectral-pipeline.png",
-      alt: "초분광 영상처리 데이터 파이프라인 개념도",
+      src: "/images/diagrams/image-pipeline.png",
+      alt: "영상처리 데이터 파이프라인 개념도",
     },
     metric: {
       label: "Pipeline Consolidation",
@@ -54,7 +54,7 @@ export const featuredProjects: FeaturedProject[] = [
     titleKo: "DirectX 11 기반 대용량 영상 렌더링 엔진",
     titleEn: "DirectX 11 Image Rendering Engine",
     businessContext:
-      "사용자는 수 GB 규모의 위성 및 초분광 영상을 확대·축소하며 세부 지역을 분석해야 했습니다.",
+      "사용자는 수 GB 규모의 대용량 영상을 확대·축소하며 세부 지역을 분석해야 했습니다.",
     problem:
       "기존 렌더링 구조에서는 대용량 영상 이동과 확대·축소 시 화면 지연이 발생해 분석 업무의 흐름이 끊겼습니다.",
     myRole:
@@ -100,12 +100,12 @@ export const featuredProjects: FeaturedProject[] = [
       "실제 클래스명·함수명·DLL명·캐시 정책·타일 크기·세부 파라미터는 표시하지 않습니다.",
   },
   {
-    id: "satellite-time-series-viewer",
-    slug: "satellite-time-series-analysis-viewer",
-    titleKo: "위성영상 시계열 분석·표출 시스템",
-    titleEn: "Satellite Time-Series Analysis Viewer",
+    id: "image-time-series-viewer",
+    slug: "image-time-series-analysis-viewer",
+    titleKo: "영상 시계열 분석·표출 시스템",
+    titleEn: "Image Time-Series Analysis Viewer",
     businessContext:
-      "사용자는 서로 다른 시기에 촬영된 위성영상과 분석 결과를 비교해 지역 변화를 확인해야 했습니다.",
+      "사용자는 서로 다른 시기에 촬영된 영상과 분석 결과를 비교해 지역 변화를 확인해야 했습니다.",
     problem:
       "시기별 데이터가 분리되어 있어 변화 양상을 연속적으로 파악하기 어려웠고, 영상과 시설물 정보를 함께 비교하기도 어려웠습니다.",
     myRole:
@@ -113,7 +113,7 @@ export const featuredProjects: FeaturedProject[] = [
     solution:
       "여러 시기의 영상 데이터를 하나의 시계열로 구성하고, 사용자가 시점과 지역을 선택해 변화 결과를 조회할 수 있도록 구현했습니다.",
     integration:
-      "위성영상, 분석 결과, 시설물 공간정보와 기존 데스크톱 뷰어를 하나의 사용자 흐름으로 통합했습니다.",
+      "영상, 분석 결과, 시설물 공간정보와 기존 데스크톱 뷰어를 하나의 사용자 흐름으로 통합했습니다.",
     result:
       "사용자가 여러 데이터와 프로그램을 오가지 않고 하나의 화면에서 시계열 변화와 공간정보를 함께 확인할 수 있게 했습니다.",
     keyContributions: [
@@ -127,7 +127,7 @@ export const featuredProjects: FeaturedProject[] = [
     ],
     technologies: ["C#", "C++", "GDAL", "DirectX 11", "Spatial Data"],
     processFlow: [
-      "Multi-Date Satellite Images",
+      "Multi-Date Images",
       "Metadata Validation",
       "Time-Series Dataset",
       "Spatial Layer Integration",
@@ -135,8 +135,8 @@ export const featuredProjects: FeaturedProject[] = [
       "Change Analysis Visualization",
     ],
     diagram: {
-      src: "/images/diagrams/satellite-data-flow.png",
-      alt: "위성영상 시계열 분석 시스템 흐름도",
+      src: "/images/diagrams/image-time-series.png",
+      alt: "영상 시계열 분석 시스템 흐름도",
     },
     metric: {
       label: "Unified View",
@@ -206,11 +206,11 @@ export const otherProjects: OtherProject[] = [
     },
   },
   {
-    id: "gcp-chip-management-module",
-    titleKo: "GCP Chip 데이터 관리 모듈",
-    titleEn: "GCP Chip Management Module",
+    id: "data-management-module",
+    titleKo: "데이터 관리 모듈 설계",
+    titleEn: "Data Management Module Design",
     description:
-      "GCP Chip 데이터의 조회·생성·등록·갱신·삭제·품질평가 업무를 분석하고, 이를 유스케이스·데이터 흐름·데이터베이스 구조로 구체화했습니다. 사용자 업무 흐름을 기능 단위로 분해하고, 화면 정의·데이터 처리 순서·품질평가 항목·테이블 구조를 설계했습니다.",
+      "관리 대상 데이터의 조회·생성·등록·갱신·삭제·품질평가 업무를 분석하고, 이를 유스케이스·데이터 흐름·데이터베이스 구조로 구체화했습니다. 사용자 업무 흐름을 기능 단위로 분해하고, 화면 정의·데이터 처리 순서·품질평가 항목·테이블 구조를 설계했습니다.",
     keyExperience: [
       "요구사항 분석",
       "유스케이스 설계",
@@ -229,8 +229,8 @@ export const otherProjects: OtherProject[] = [
     visualType: "diagram",
     images: [
       {
-        src: "/images/diagrams/gcp-chip-process.png",
-        alt: "GCP Chip 데이터 관리 설계 프로세스 개념도",
+        src: "/images/diagrams/data-module-process.png",
+        alt: "데이터 관리 모듈 설계 프로세스 개념도",
       },
     ],
     processFlow: [

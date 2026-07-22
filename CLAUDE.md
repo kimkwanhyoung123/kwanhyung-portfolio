@@ -45,13 +45,13 @@ Present the engineer as someone who:
 
 ## Featured Projects
 
-1. Hyperspectral Image Processing Platform
+1. Image Processing & Analysis Platform
 2. DirectX 11 Image Rendering Engine
-3. Satellite Time-Series Analysis Viewer
+3. Image Time-Series Analysis Viewer
 
 ## Other Projects
 
-1. GCP Chip Management Module
+1. Data Management Module Design
 2. Bug Bounty Security Research
 3. CTF Security Challenges
 4. Crew Running Application
