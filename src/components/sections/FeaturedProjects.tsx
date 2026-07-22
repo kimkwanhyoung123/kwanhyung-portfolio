@@ -33,11 +33,15 @@ export default function FeaturedProjects() {
         <div className="mt-12 flex flex-col gap-20">
           {featuredProjects.map((project, index) => (
             <Reveal key={project.id} delay={0.05}>
-              <article
-                className={`flex flex-col gap-8 md:gap-12 ${
-                  index % 2 === 1 ? "md:flex-row-reverse" : "md:flex-row"
-                }`}
-              >
+              <article className="flex flex-col gap-8">
+                {/* Diagram and the core narrative sit side by side; the deeper
+                    engineering story below spans the full width so the column
+                    opposite a long write-up isn't left empty. */}
+                <div
+                  className={`flex flex-col gap-8 md:gap-12 ${
+                    index % 2 === 1 ? "md:flex-row-reverse" : "md:flex-row"
+                  }`}
+                >
                 <div className="md:w-1/2">
                   <div className="relative aspect-video overflow-hidden rounded-lg border border-border bg-background">
                     <Image
@@ -106,44 +110,46 @@ export default function FeaturedProjects() {
                       </div>
                     ))}
                   </dl>
+                </div>
+                </div>
 
-                  {project.technicalStory ? (
-                    <div className="mt-6 space-y-4 border-t border-border pt-5">
-                      <div>
-                        <p className="font-mono text-xs uppercase tracking-wide text-accent">
-                          문제 → 해결
-                        </p>
-                        <ul className="mt-3 space-y-4">
-                          {project.technicalStory.challenges.map((c) => (
-                            <li key={c.problem} className="text-sm">
-                              <p className="text-muted">
-                                <span className="font-semibold text-foreground">
-                                  문제.
-                                </span>{" "}
-                                {c.problem}
-                              </p>
-                              <p className="mt-1.5 text-muted">
-                                <span className="font-semibold text-accent">
-                                  해결.
-                                </span>{" "}
-                                {c.solution}
-                              </p>
-                            </li>
-                          ))}
-                        </ul>
-                      </div>
-                      <div>
-                        <p className="font-mono text-xs uppercase tracking-wide text-accent">
-                          성장
-                        </p>
-                        <p className="mt-2 text-sm text-muted">
-                          {project.technicalStory.growth}
-                        </p>
-                      </div>
+                {project.technicalStory ? (
+                  <div className="border-t border-border pt-6">
+                    <p className="font-mono text-xs uppercase tracking-wide text-accent">
+                      문제 → 해결
+                    </p>
+                    <ul className="mt-4 grid gap-x-10 gap-y-6 md:grid-cols-2">
+                      {project.technicalStory.challenges.map((c) => (
+                        <li key={c.problem} className="text-sm">
+                          <p className="text-muted">
+                            <span className="font-semibold text-foreground">
+                              문제.
+                            </span>{" "}
+                            {c.problem}
+                          </p>
+                          <p className="mt-1.5 text-muted">
+                            <span className="font-semibold text-accent">
+                              해결.
+                            </span>{" "}
+                            {c.solution}
+                          </p>
+                        </li>
+                      ))}
+                    </ul>
+
+                    <div className="mt-6 rounded-lg border border-border bg-surface p-4">
+                      <p className="font-mono text-xs uppercase tracking-wide text-accent">
+                        성장
+                      </p>
+                      <p className="mt-2 text-sm text-muted">
+                        {project.technicalStory.growth}
+                      </p>
                     </div>
-                  ) : null}
+                  </div>
+                ) : null}
 
-                  <ul className="mt-6 flex flex-wrap gap-2">
+                <div>
+                  <ul className="flex flex-wrap gap-2">
                     {project.keyContributions.map((item) => (
                       <li
                         key={item}
