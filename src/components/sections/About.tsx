@@ -12,9 +12,12 @@ export default function About() {
           <SectionTitle number="01" title="About" />
         </Reveal>
 
-        <div className="mt-10 grid gap-12 lg:grid-cols-[3fr_2fr]">
+        {/* Prose runs across the full width in two columns, with the strength
+            cards on a full-width row beneath it — a narrow text column beside a
+            tall stack of cards left the page half empty. */}
+        <div className="mt-10 space-y-10">
           <Reveal delay={0.05}>
-            <div className="space-y-4 text-muted">
+            <div className="grid gap-x-12 gap-y-4 text-muted md:grid-cols-2">
               {profile.aboutParagraphs.map((paragraph) => (
                 <p key={paragraph}>{paragraph}</p>
               ))}
@@ -33,7 +36,7 @@ export default function About() {
           </Reveal>
 
           <Reveal delay={0.1}>
-            <ul className="grid gap-4 sm:grid-cols-2 lg:grid-cols-1">
+            <ul className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
               {coreStrengths.map((strength) => (
                 <li
                   key={strength.title}
