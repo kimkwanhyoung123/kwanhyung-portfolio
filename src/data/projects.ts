@@ -7,7 +7,7 @@ export const featuredProjects: FeaturedProject[] = [
     titleKo: "영상처리 및 분석 플랫폼",
     titleEn: "Image Processing & Analysis Platform",
     businessContext:
-      "여러 센서로 수집한 영상 데이터를 분석하기 위해 여러 개의 처리 도구와 수작업 절차를 사용하고 있었습니다.",
+      "여러 센서로 수집한 영상 데이터를 분석하기 위해 분산된 처리 도구 4개와 수작업 절차를 사용하고 있었습니다.",
     problem:
       "센서별 데이터 형식이 다르고, 전처리부터 분석과 결과 확인까지의 과정이 분리되어 있어 사용자가 전체 작업 흐름을 관리하기 어려웠습니다.",
     myRole:
@@ -17,7 +17,7 @@ export const featuredProjects: FeaturedProject[] = [
     integration:
       "여러 계열의 센서 영상 데이터, GDAL 기반 공간정보 처리, C++ 영상처리 모듈과 C# 애플리케이션을 연결했습니다.",
     result:
-      "사용자는 하나의 소프트웨어에서 데이터 처리, 결과 확인과 픽셀 단위 분석까지 연속적으로 수행할 수 있게 됐습니다.",
+      "분산된 처리 도구 4개를 하나의 흐름으로 통합하고, 반복 작업과 파일 이동 절차를 개선해 전체 처리 시간을 약 20% 단축했습니다. 사용자는 하나의 소프트웨어에서 처리·결과 확인·픽셀 단위 분석까지 연속 수행할 수 있게 됐습니다.",
     keyContributions: [
       "C# UI ↔ C++ 영상처리 모듈 인터페이스 설계",
       "센서별 메타데이터 표준화",
@@ -42,8 +42,8 @@ export const featuredProjects: FeaturedProject[] = [
       alt: "영상처리 데이터 파이프라인 개념도",
     },
     metric: {
-      label: "Pipeline Consolidation",
-      value: "분리된 도구·수작업 → 7단계 단일 파이프라인",
+      label: "처리 시간",
+      value: "약 20% 단축 (도구 4개 → 단일 흐름)",
     },
     disclaimerNote:
       "실제 업무 경험을 일반화해 재구성한 개념도이며, 회사의 실제 내부 설계와 제품 화면은 포함하지 않았습니다.",
@@ -54,7 +54,7 @@ export const featuredProjects: FeaturedProject[] = [
     titleKo: "DirectX 11 기반 대용량 영상 렌더링 엔진",
     titleEn: "DirectX 11 Image Rendering Engine",
     businessContext:
-      "사용자는 수 GB 규모의 대용량 영상을 확대·축소하며 세부 지역을 분석해야 했습니다.",
+      "사용자는 최대 약 10GB 규모의 대용량 영상을 확대·축소하며 세부 지역을 분석해야 했습니다.",
     problem:
       "기존 렌더링 구조에서는 대용량 영상 이동과 확대·축소 시 화면 지연이 발생해 분석 업무의 흐름이 끊겼습니다.",
     myRole:
@@ -64,7 +64,7 @@ export const featuredProjects: FeaturedProject[] = [
     integration:
       "기존 C# 데스크톱 애플리케이션을 유지하면서 C++ DirectX 렌더링 모듈을 재사용 가능한 인터페이스로 연결했습니다.",
     result:
-      "내부 테스트 기준 화면 렌더링 지연을 약 30% 개선하고 대용량 영상 탐색의 응답성을 높였습니다.",
+      "내부 테스트 기준 화면 렌더링 지연을 약 30% 개선하고, 최대 약 10GB 규모 영상의 탐색 응답성을 높였습니다.",
     keyContributions: [
       "Direct3D 11 렌더링 구조 설계",
       "C#↔C++ 렌더링 모듈 인터페이스 구현",
@@ -93,8 +93,8 @@ export const featuredProjects: FeaturedProject[] = [
       alt: "DirectX 11 렌더링 구조 개선 전/후 비교 다이어그램",
     },
     metric: {
-      label: "Rendering Latency",
-      value: "약 30% 개선 (내부 테스트 기준)",
+      label: "Rendering",
+      value: "지연 약 30% ↓ · 최대 ~10GB 표출",
     },
     disclaimerNote:
       "실제 클래스명·함수명·DLL명·캐시 정책·타일 크기·세부 파라미터는 표시하지 않습니다.",
@@ -115,7 +115,7 @@ export const featuredProjects: FeaturedProject[] = [
     integration:
       "영상, 분석 결과, 시설물 공간정보와 기존 데스크톱 뷰어를 하나의 사용자 흐름으로 통합했습니다.",
     result:
-      "사용자가 여러 데이터와 프로그램을 오가지 않고 하나의 화면에서 시계열 변화와 공간정보를 함께 확인할 수 있게 했습니다.",
+      "기존 2개 프로그램을 오가던 작업을 하나의 뷰어로 일원화하고, 최대 12개 시기의 영상을 단일 화면에서 비교·확인할 수 있게 했습니다.",
     keyContributions: [
       "다중 시기 영상 데이터 구성",
       "시계열 조회·비교 기능",
@@ -139,8 +139,8 @@ export const featuredProjects: FeaturedProject[] = [
       alt: "영상 시계열 분석 시스템 흐름도",
     },
     metric: {
-      label: "Unified View",
-      value: "다중 시기 영상·분석·공간정보를 단일 화면으로 통합",
+      label: "시계열 통합",
+      value: "최대 12시기 · 프로그램 2개 → 1개",
     },
     disclaimerNote:
       "제품명·고객기관명·실제 촬영지역·데이터 구조는 표시하지 않습니다.",
@@ -210,7 +210,7 @@ export const otherProjects: OtherProject[] = [
     titleKo: "데이터 관리 모듈 설계",
     titleEn: "Data Management Module Design",
     description:
-      "관리 대상 데이터의 조회·생성·등록·갱신·삭제·품질평가 업무를 분석하고, 이를 유스케이스·데이터 흐름·데이터베이스 구조로 구체화했습니다. 사용자 업무 흐름을 기능 단위로 분해하고, 화면 정의·데이터 처리 순서·품질평가 항목·테이블 구조를 설계했습니다.",
+      "관리 대상 데이터의 조회·생성·등록·갱신·삭제·품질평가 업무를 분석하고, 이를 유스케이스·데이터 흐름·데이터베이스 구조로 구체화했습니다. 6종 관리 기능과 5종 품질지표, 약 8개 테이블·엔티티 기반의 데이터 및 이력 구조를 설계했습니다.",
     keyExperience: [
       "요구사항 분석",
       "유스케이스 설계",
@@ -242,8 +242,9 @@ export const otherProjects: OtherProject[] = [
       "품질평가 데이터 관리",
     ],
     metrics: [
-      { label: "데이터 관리 기능", value: "6종 (CRUD·품질평가)" },
-      { label: "설계 산출물", value: "5종 (유스케이스~품질평가)" },
+      { label: "관리 기능", value: "6종 (CRUD·품질평가)" },
+      { label: "품질지표", value: "5종" },
+      { label: "테이블·엔티티", value: "약 8개" },
     ],
     disclaimerNote:
       "실제 테이블명·컬럼명·내부 문서·고객 요구사항은 공개하지 않습니다.",
@@ -253,7 +254,7 @@ export const otherProjects: OtherProject[] = [
     titleKo: "크루 기반 러닝 애플리케이션",
     titleEn: "Crew Running Application",
     description:
-      "러닝 크루의 실제 사용 흐름을 분석해 사용자 위치와 이동 경로를 실시간으로 공유하는 Android 애플리케이션을 개발했습니다. 스마트폰 추락 감지 시 주변 AED 위치를 자동으로 표출해 긴급상황에 대응할 수 있도록 구현했습니다.",
+      "러닝 크루의 실제 사용 흐름을 분석해, 최대 10명이 참여하는 크루의 위치를 약 5초 주기로 갱신하며 이동 경로를 지도에 실시간 공유하는 Android 애플리케이션을 개발했습니다. 스마트폰 추락 감지 시 주변 AED 위치를 자동으로 표출해 긴급상황에 대응할 수 있도록 구현했습니다.",
     keyExperience: [
       "사용자 요구사항 분석",
       "위치 기반 데이터 처리",
@@ -264,8 +265,9 @@ export const otherProjects: OtherProject[] = [
     ],
     technologies: ["Java", "Android Studio", "Location API", "Spatial Data"],
     metrics: [
-      { label: "핵심 기능", value: "3종 (위치공유·낙상감지·AED)" },
-      { label: "플랫폼", value: "Android (Java)" },
+      { label: "실시간 크루", value: "최대 10명" },
+      { label: "위치 갱신", value: "약 5초 주기" },
+      { label: "핵심 기능", value: "3종 (위치·낙상·AED)" },
     ],
     visualType: "screenshot",
     images: [
@@ -284,7 +286,7 @@ export const otherProjects: OtherProject[] = [
     ],
     technicalStory: {
       approach: [
-        "Android(Java)에서 위치 API로 크루원의 위치를 주기적으로 수집·공유하고, 지도에 각자의 위치와 러닝 경로를 실시간으로 표출했습니다.",
+        "Android(Java)에서 위치 API로 최대 10명 크루원의 위치를 약 5초 주기로 수집·공유하고, 지도에 각자의 위치와 러닝 경로를 실시간으로 표출했습니다.",
         "가속도 센서 값의 급격한 변화 패턴으로 스마트폰 추락(낙상) 이벤트를 감지했습니다.",
         "낙상 감지 시 공공 AED 위치 데이터와 현재 위치로 최근접 AED를 계산해 안내했습니다.",
       ],
