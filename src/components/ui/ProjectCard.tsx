@@ -9,7 +9,8 @@ interface ProjectCardProps {
 export default function ProjectCard({ project }: ProjectCardProps) {
   return (
     <article className="flex h-full flex-col rounded-lg border border-border bg-surface p-6">
-      {project.images.length === 1 ? (
+      {/* First image leads full-width; any further images sit in a 2-up grid. */}
+      <div className="space-y-2">
         <div className="relative aspect-video overflow-hidden rounded-md border border-border bg-background">
           <Image
             src={project.images[0].src}
@@ -19,24 +20,27 @@ export default function ProjectCard({ project }: ProjectCardProps) {
             className="object-contain"
           />
         </div>
-      ) : (
-        <div className="grid grid-cols-3 gap-2">
-          {project.images.map((image) => (
-            <div
-              key={image.src}
-              className="relative aspect-[9/16] overflow-hidden rounded-md border border-border"
-            >
-              <Image
-                src={image.src}
-                alt={image.alt}
-                fill
-                sizes="(min-width: 768px) 16vw, 33vw"
-                className="object-cover"
-              />
-            </div>
-          ))}
-        </div>
-      )}
+        {project.images.length > 1 ? (
+          <div className="grid grid-cols-2 gap-2">
+            {project.images.slice(1).map((image) => (
+              <figure key={image.src} className="m-0">
+                <div className="relative aspect-video overflow-hidden rounded-md border border-border bg-background">
+                  <Image
+                    src={image.src}
+                    alt={image.alt}
+                    fill
+                    sizes="(min-width: 768px) 25vw, 50vw"
+                    className="object-contain"
+                  />
+                </div>
+                <figcaption className="mt-1 text-center font-mono text-[10px] text-muted">
+                  {image.alt}
+                </figcaption>
+              </figure>
+            ))}
+          </div>
+        ) : null}
+      </div>
 
       {project.processFlow ? (
         <div className="mt-4">

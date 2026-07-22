@@ -153,14 +153,15 @@ export const otherProjects: OtherProject[] = [
     titleKo: "보안 인시던트 트리아지 AI 에이전트",
     titleEn: "Security Incident Triage Agent",
     description:
-      "보안 알림을 받아 읽기전용 도구로 로그를 조사하고, 공격 체인을 재구성해 스키마로 검증된 트리아지 리포트(정탐/오탐·심각도·근본원인)를 생성하는 멀티스텝 LangGraph 에이전트입니다. 가드레일·관측성·평가(eval)를 포함하며, 로컬 LLM(Ollama)로 완전히 오프라인 실행됩니다. CTF·버그바운티에서 하던 로그 기반 가설 수립과 근본원인 추적을 에이전트 엔지니어링으로 확장했습니다.",
+      "보안 알림을 받아 읽기전용 도구로 로그를 조사하고, 공격 체인을 재구성해 스키마로 검증된 트리아지 리포트(정탐/오탐·심각도·근본원인)를 생성하는 멀티스텝 LangGraph 에이전트입니다. 합성 데이터가 아닌 실제 공개 로그(LogHub의 OpenSSH·BGL·Linux·Apache) 약 8,000건 위에서 13개 라벨 시나리오로 평가해 정밀도·재현율 0.75(F1 0.75)를 측정했고, 에이전트와 다른 로컬 모델을 judge로 써서 근본원인의 의미 일치를 채점합니다. 전 과정이 로컬 LLM(Ollama)으로 API 비용 없이 실행됩니다.",
     keyExperience: [
       "LangGraph ReAct 에이전트 설계",
       "멀티스텝 tool-use",
       "가드레일(읽기전용·반복상한·스키마검증)",
       "관측성(토큰·지연·트레이스)",
-      "평가(eval) 하니스",
-      "로컬 LLM 오프라인 실행",
+      "정밀도·재현율 평가 하니스",
+      "LLM-as-judge (자기채점 방지)",
+      "실제 공개 로그셋 파서 연동",
     ],
     technologies: ["Python", "LangGraph", "Ollama", "Pydantic", "pytest"],
     visualType: "diagram",
@@ -169,11 +170,19 @@ export const otherProjects: OtherProject[] = [
         src: "/images/diagrams/security-agent.png",
         alt: "보안 인시던트 트리아지 에이전트 아키텍처 개념도",
       },
+      {
+        src: "/images/diagrams/agent-cli-run.png",
+        alt: "실제 실행 화면 · 트리아지 리포트",
+      },
+      {
+        src: "/images/diagrams/agent-eval-results.png",
+        alt: "평가 결과 · 정밀도 0.75 / 재현율 0.75",
+      },
     ],
     metrics: [
-      { label: "Eval accuracy", value: "2/3 → 3/3" },
-      { label: "Read-only tools", value: "5" },
-      { label: "Latency", value: "~15s / alert" },
+      { label: "Precision / Recall", value: "0.75 / 0.75 (F1 0.75)" },
+      { label: "평가 규모", value: "실로그 8천건 · 13 시나리오" },
+      { label: "Latency", value: "~13s / alert" },
     ],
     links: [
       {
@@ -183,9 +192,9 @@ export const otherProjects: OtherProject[] = [
     ],
     technicalStory: {
       approach: [
-        "LangGraph StateGraph로 investigate ↔ tools 루프와 conclude 노드를 구성한 ReAct 에이전트를 설계했습니다.",
-        "읽기전용 도구 5종(로그 검색·타임라인·IP 평판·자산·신원)으로 알림을 조사하고, 최종 결과를 Pydantic 스키마(TriageReport)로 강제했습니다.",
-        "모든 LLM·도구 호출을 토큰·지연·인자 단위로 트레이스에 기록하는 관측성 계층을 넣었습니다.",
+        "LangGraph StateGraph로 investigate ↔ tools 루프와 conclude 노드를 구성한 ReAct 에이전트를 설계하고, 읽기전용 도구 5종으로 조사한 결과를 Pydantic 스키마로 강제했습니다.",
+        "합성 데이터에 머무르지 않고 LogHub의 실제 공개 로그(OpenSSH·BGL·Linux·Apache) 파서를 만들어 약 8,000건 위에서 13개 라벨 시나리오로 평가했습니다.",
+        "에이전트와 다른 로컬 모델을 judge로 두어 근본원인의 의미 일치와 근거 인용 여부를 채점하고, 정밀도·재현율·F1로 지표화했습니다.",
       ],
       challenges: [
         {
@@ -196,13 +205,19 @@ export const otherProjects: OtherProject[] = [
         },
         {
           problem:
-            "작은 모델의 출력이 불안정해 잘못되거나 깨진 리포트가 나올 위험이 있었습니다.",
+            "실제 로그로 옮기자 공격자 IP가 위협 인텔에 아예 없어서, 조회 결과가 'clean'으로 나오며 에이전트를 미탐(false negative) 쪽으로 밀었습니다.",
           solution:
-            "읽기전용 도구 allowlist·반복 상한·스키마 검증 폴백으로 '안전하게 실패'하도록 가드레일을 세우고, 평가(eval) 하니스로 정확도를 정량화(3B 2/3 · 7B 3/3)해 회귀를 감지하게 했습니다.",
+            "인텔 기록이 없는 주소는 'clean'이 아니라 'unknown'으로 반환하도록 바꿔, '정보 없음'과 '안전함'을 분리했습니다. 실데이터를 넣지 않았으면 발견하지 못했을 설계 결함이었습니다.",
+        },
+        {
+          problem:
+            "정답 라벨을 제가 만들다 보니 채점 자체가 불공정해질 위험이 있었습니다.",
+          solution:
+            "시나리오마다 라벨 출처를 명시(BGL은 데이터셋 공식 라벨, 나머지는 규칙 기반 파생)하고 임계값을 문서화했습니다. 그 과정에서 '실패한 SSH 브루트포스'를 high로 잡은 제 라벨이 과했음을 발견해 medium으로 정정했습니다.",
         },
       ],
       growth:
-        "'모델을 바꾸기 전에 컨텍스트·평가·가드레일부터 설계한다'는 LLM 제품 엔지니어링 관점을 체득했고, 관측성이 디버깅의 핵심이라는 것을 직접 경험했습니다.",
+        "합성 데이터에서는 보이지 않던 결함(위협인텔 공백, 과한 정답 라벨)이 실데이터에서 드러나는 것을 경험하며, '평가 설계가 곧 제품 품질'이라는 관점을 얻었습니다. 완벽한 수치를 만들기보다 F1 0.75라는 실제 측정값과 약점(심각도 과소평가)을 그대로 공개하는 편이 신뢰를 준다고 판단했습니다.",
     },
   },
   {
@@ -248,65 +263,6 @@ export const otherProjects: OtherProject[] = [
     ],
     disclaimerNote:
       "실제 테이블명·컬럼명·내부 문서·고객 요구사항은 공개하지 않습니다.",
-  },
-  {
-    id: "crew-running-application",
-    titleKo: "크루 기반 러닝 애플리케이션",
-    titleEn: "Crew Running Application",
-    description:
-      "러닝 크루의 실제 사용 흐름을 분석해, 최대 10명이 참여하는 크루의 위치를 약 5초 주기로 갱신하며 이동 경로를 지도에 실시간 공유하는 Android 애플리케이션을 개발했습니다. 스마트폰 추락 감지 시 주변 AED 위치를 자동으로 표출해 긴급상황에 대응할 수 있도록 구현했습니다.",
-    keyExperience: [
-      "사용자 요구사항 분석",
-      "위치 기반 데이터 처리",
-      "실시간 사용자 위치 표출",
-      "러닝 경로 시각화",
-      "스마트폰 추락 감지",
-      "주변 AED 위치 안내",
-    ],
-    technologies: ["Java", "Android Studio", "Location API", "Spatial Data"],
-    metrics: [
-      { label: "실시간 크루", value: "최대 10명" },
-      { label: "위치 갱신", value: "약 5초 주기" },
-      { label: "핵심 기능", value: "3종 (위치·낙상·AED)" },
-    ],
-    visualType: "screenshot",
-    images: [
-      {
-        src: "/images/running-app/running-main.png",
-        alt: "러닝 크루 애플리케이션 로그인 및 메인 화면",
-      },
-      {
-        src: "/images/running-app/running-map.png",
-        alt: "크루 위치와 러닝 경로가 표출된 지도 화면",
-      },
-      {
-        src: "/images/running-app/aed-alert.png",
-        alt: "추락 감지 시 주변 AED 위치 안내 화면",
-      },
-    ],
-    technicalStory: {
-      approach: [
-        "Android(Java)에서 위치 API로 최대 10명 크루원의 위치를 약 5초 주기로 수집·공유하고, 지도에 각자의 위치와 러닝 경로를 실시간으로 표출했습니다.",
-        "가속도 센서 값의 급격한 변화 패턴으로 스마트폰 추락(낙상) 이벤트를 감지했습니다.",
-        "낙상 감지 시 공공 AED 위치 데이터와 현재 위치로 최근접 AED를 계산해 안내했습니다.",
-      ],
-      challenges: [
-        {
-          problem:
-            "위치를 자주 갱신하면 배터리 소모와 지도 렌더링 부하가 커지고, GPS 오차로 경로가 튀는 문제가 있었습니다.",
-          solution:
-            "위치 갱신 주기와 정확도 우선순위를 조정하고 경로 좌표를 보정해 배터리 소모와 표출 품질의 균형을 맞췄습니다.",
-        },
-        {
-          problem:
-            "달릴 때의 반동·흔들림과 실제 낙상을 구분하지 못해 오탐이 발생했습니다.",
-          solution:
-            "가속도 임계값에 더해 충격 직후의 정지 구간을 함께 판정 조건으로 삼아 오탐을 줄였습니다.",
-        },
-      ],
-      growth:
-        "센서·위치처럼 노이즈가 많은 실데이터를 다루며 '정확도 vs 배터리·오탐' 같은 현실적 트레이드오프를 조정하는 감각을 길렀습니다.",
-    },
   },
 ];
 
