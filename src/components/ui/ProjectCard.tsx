@@ -70,21 +70,23 @@ export default function ProjectCard({ project }: ProjectCardProps) {
 
       {project.technicalStory ? (
         <div className="mt-5 space-y-4 border-t border-border pt-4">
-          <div>
-            <p className="font-mono text-xs uppercase tracking-wide text-accent">
-              기술 구현
-            </p>
-            <ul className="mt-2 space-y-1">
-              {project.technicalStory.approach.map((item) => (
-                <li key={item} className="flex gap-2 text-sm text-muted">
-                  <span aria-hidden className="mt-1 text-accent">
-                    ▹
-                  </span>
-                  <span>{item}</span>
-                </li>
-              ))}
-            </ul>
-          </div>
+          {project.technicalStory.approach ? (
+            <div>
+              <p className="font-mono text-xs uppercase tracking-wide text-accent">
+                기술 구현
+              </p>
+              <ul className="mt-2 space-y-1">
+                {project.technicalStory.approach.map((item) => (
+                  <li key={item} className="flex gap-2 text-sm text-muted">
+                    <span aria-hidden className="mt-1 text-accent">
+                      ▹
+                    </span>
+                    <span>{item}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ) : null}
 
           <div>
             <p className="font-mono text-xs uppercase tracking-wide text-accent">

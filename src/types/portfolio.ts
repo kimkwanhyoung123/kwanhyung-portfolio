@@ -71,6 +71,7 @@ export interface FeaturedProject {
   flowAfter?: string[];
   diagram: ProjectImage;
   metric?: ProjectMetric;
+  technicalStory?: TechnicalStory;
   disclaimerNote: string;
 }
 
@@ -86,10 +87,14 @@ export interface TechnicalChallenge {
   solution: string;
 }
 
-/** Optional engineering deep-dive for build projects: how it was built, what
- * was hard and how it was solved, and what growth came from it. */
+/** Optional engineering deep-dive: how it was built, what was hard and how it
+ * was solved, and what growth came from it.
+ *
+ * `approach` is optional — featured projects already describe their approach in
+ * the My Role / Solution / Integration blocks, so they carry only the
+ * challenges and the growth. */
 export interface TechnicalStory {
-  approach: string[];
+  approach?: string[];
   challenges: TechnicalChallenge[];
   growth: string;
 }

@@ -107,6 +107,42 @@ export default function FeaturedProjects() {
                     ))}
                   </dl>
 
+                  {project.technicalStory ? (
+                    <div className="mt-6 space-y-4 border-t border-border pt-5">
+                      <div>
+                        <p className="font-mono text-xs uppercase tracking-wide text-accent">
+                          문제 → 해결
+                        </p>
+                        <ul className="mt-3 space-y-4">
+                          {project.technicalStory.challenges.map((c) => (
+                            <li key={c.problem} className="text-sm">
+                              <p className="text-muted">
+                                <span className="font-semibold text-foreground">
+                                  문제.
+                                </span>{" "}
+                                {c.problem}
+                              </p>
+                              <p className="mt-1.5 text-muted">
+                                <span className="font-semibold text-accent">
+                                  해결.
+                                </span>{" "}
+                                {c.solution}
+                              </p>
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
+                      <div>
+                        <p className="font-mono text-xs uppercase tracking-wide text-accent">
+                          성장
+                        </p>
+                        <p className="mt-2 text-sm text-muted">
+                          {project.technicalStory.growth}
+                        </p>
+                      </div>
+                    </div>
+                  ) : null}
+
                   <ul className="mt-6 flex flex-wrap gap-2">
                     {project.keyContributions.map((item) => (
                       <li
