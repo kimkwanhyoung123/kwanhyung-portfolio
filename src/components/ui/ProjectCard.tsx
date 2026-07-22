@@ -64,6 +64,55 @@ export default function ProjectCard({ project }: ProjectCardProps) {
         ))}
       </ul>
 
+      {project.technicalStory ? (
+        <div className="mt-5 space-y-4 border-t border-border pt-4">
+          <div>
+            <p className="font-mono text-xs uppercase tracking-wide text-accent">
+              기술 구현
+            </p>
+            <ul className="mt-2 space-y-1">
+              {project.technicalStory.approach.map((item) => (
+                <li key={item} className="flex gap-2 text-sm text-muted">
+                  <span aria-hidden className="mt-1 text-accent">
+                    ▹
+                  </span>
+                  <span>{item}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          <div>
+            <p className="font-mono text-xs uppercase tracking-wide text-accent">
+              문제 → 해결
+            </p>
+            <ul className="mt-2 space-y-3">
+              {project.technicalStory.challenges.map((c) => (
+                <li key={c.problem} className="text-sm">
+                  <p className="text-muted">
+                    <span className="font-semibold text-foreground">문제.</span>{" "}
+                    {c.problem}
+                  </p>
+                  <p className="mt-1 text-muted">
+                    <span className="font-semibold text-accent">해결.</span>{" "}
+                    {c.solution}
+                  </p>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          <div>
+            <p className="font-mono text-xs uppercase tracking-wide text-accent">
+              성장
+            </p>
+            <p className="mt-2 text-sm text-muted">
+              {project.technicalStory.growth}
+            </p>
+          </div>
+        </div>
+      ) : null}
+
       {project.deliverables ? (
         <ul className="mt-4 space-y-1 font-mono text-xs text-muted">
           {project.deliverables.map((item) => (

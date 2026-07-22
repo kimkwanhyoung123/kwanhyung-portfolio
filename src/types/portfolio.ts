@@ -81,6 +81,19 @@ export interface ProjectLink {
   href: string;
 }
 
+export interface TechnicalChallenge {
+  problem: string;
+  solution: string;
+}
+
+/** Optional engineering deep-dive for build projects: how it was built, what
+ * was hard and how it was solved, and what growth came from it. */
+export interface TechnicalStory {
+  approach: string[];
+  challenges: TechnicalChallenge[];
+  growth: string;
+}
+
 export interface OtherProject {
   id: string;
   titleKo: string;
@@ -94,6 +107,7 @@ export interface OtherProject {
   deliverables?: string[];
   metrics?: ProjectMetric[];
   links?: ProjectLink[];
+  technicalStory?: TechnicalStory;
   disclaimerNote?: string;
 }
 
