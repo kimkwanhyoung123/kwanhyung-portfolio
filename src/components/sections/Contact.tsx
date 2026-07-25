@@ -10,7 +10,7 @@ export default function Contact() {
   return (
     <section
       id="contact"
-      className="scroll-mt-20 py-24"
+      className="snap-panel flex min-h-svh items-center scroll-mt-20 py-24"
       aria-label="Contact"
     >
       <Container>

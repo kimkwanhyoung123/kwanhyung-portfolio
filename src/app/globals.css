@@ -31,6 +31,18 @@ html {
   scroll-padding-top: 5rem;
 }
 
+/* Full-screen "one project per screen" deck. Proximity (not mandatory) so
+   panels taller than the viewport never trap the scroll. */
+@media (prefers-reduced-motion: no-preference) {
+  html {
+    scroll-snap-type: y proximity;
+  }
+}
+
+.snap-panel {
+  scroll-snap-align: start;
+}
+
 body {
   background: var(--color-background);
   color: var(--color-foreground);

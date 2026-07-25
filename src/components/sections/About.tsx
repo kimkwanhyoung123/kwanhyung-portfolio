@@ -6,7 +6,11 @@ import { skills } from "@/data/skills";
 
 export default function About() {
   return (
-    <section id="about" className="scroll-mt-20 py-24" aria-label="About">
+    <section
+      id="about"
+      className="snap-panel flex min-h-svh items-center scroll-mt-20 py-24"
+      aria-label="About"
+    >
       <Container>
         <Reveal>
           <SectionTitle number="01" title="About" />

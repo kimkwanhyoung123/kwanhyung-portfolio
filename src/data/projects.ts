@@ -397,8 +397,8 @@ export const securityResearchProjects: OtherProject[] = [
     visualType: "screenshot",
     images: [
       {
-        src: "/images/ctf/ctf-result.png",
-        alt: "CTF 대회 공개 순위 화면 캡처",
+        src: "/images/ctf/ctf-result-masked.png",
+        alt: "CTF 대회 공개 순위 화면 캡처 (개인 식별정보 가림 처리)",
       },
     ],
     metrics: [

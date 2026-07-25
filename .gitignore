@@ -48,3 +48,6 @@ next-env.d.ts
 
 # standalone python side-project (kept out of the Next.js portfolio repo)
 /security-triage-agent
+
+# private job-application portfolio (PDF/HTML with non-public research) — never publish
+/security-portfolio

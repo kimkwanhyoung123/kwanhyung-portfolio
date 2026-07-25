@@ -132,3 +132,28 @@ export interface CompanyProjectDisclaimer {
   ko: string;
   en: string;
 }
+
+/** A single project rendered as one full-screen panel in the deck.
+ * Normalized from FeaturedProject / OtherProject so one component can render
+ * company work and security work identically. */
+export interface ProjectPanelData {
+  id: string;
+  /** Section grouping label shown in the eyebrow (e.g. "Projects"). */
+  sectionLabel: string;
+  titleKo: string;
+  titleEn?: string;
+  /** One short outcome-focused line. */
+  summary: string;
+  /** Short capability chips. */
+  highlights: string[];
+  technologies: string[];
+  images: ProjectImage[];
+  processFlow?: string[];
+  flowBefore?: string[];
+  flowAfter?: string[];
+  metrics?: ProjectMetric[];
+  deliverables?: string[];
+  links?: ProjectLink[];
+  disclaimerNote?: string;
+  accent: "company" | "security";
+}

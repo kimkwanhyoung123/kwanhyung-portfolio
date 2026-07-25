@@ -7,7 +7,7 @@ export default function Hero() {
   return (
     <section
       id="hero"
-      className="flex min-h-screen items-center pt-16"
+      className="snap-panel flex min-h-svh items-center pt-16"
       aria-label="Hero"
     >
       <Container>

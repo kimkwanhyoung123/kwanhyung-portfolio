@@ -36,7 +36,7 @@ export default function Experience() {
   return (
     <section
       id="experience"
-      className="scroll-mt-20 py-24"
+      className="snap-panel flex min-h-svh items-center scroll-mt-20 py-24"
       aria-label="Experience"
     >
       <Container>
