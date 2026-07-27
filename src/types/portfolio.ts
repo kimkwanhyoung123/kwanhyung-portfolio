@@ -158,11 +158,30 @@ export interface ProjectPanelData {
   accent: "company" | "security";
 }
 
-/** A single project slide in the horizontal, illustration-first deck.
- * Kept intentionally short so each slide is scannable at a glance. */
+/** FDE-oriented deep-dive for a featured project. Each field is one concise
+ * sentence; the diagram carries the system view. */
+export interface FdeDetail {
+  /** Who the user was and what they were doing. */
+  customerContext: string;
+  /** What was unclear in the initial requirements. */
+  ambiguity: string;
+  /** How it was solved, structurally. */
+  engineering: string;
+  /** How it was integrated with existing systems and shipped. */
+  delivery: string;
+  /** How correct operation was verified. */
+  validation: string;
+  /** What changed for the user / performance. */
+  impact: string;
+  /** The pattern/structure reused in later work. */
+  reusableLearning: string;
+}
+
+/** A single project in the vertical deck. Featured projects also carry a
+ * `detail` (FDE structure); additional work stays compact. */
 export interface DeckItem {
   id: string;
-  /** Selects the bespoke illustration rendered in ProjectArt. */
+  /** Selects the schematic diagram rendered in ProjectArt. */
   art: string;
   /** Small label above the title, e.g. "3DLabs · 위성·드론 영상처리". */
   kicker: string;
@@ -177,4 +196,8 @@ export interface DeckItem {
   link?: ProjectLink;
   /** Optional short disclaimer. */
   note?: string;
+  /** True for the 4 headline projects shown as deep, full-width panels. */
+  featured?: boolean;
+  /** FDE 7-part breakdown, only set on featured projects. */
+  detail?: FdeDetail;
 }
