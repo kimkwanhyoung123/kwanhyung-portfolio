@@ -43,6 +43,15 @@ html {
   scroll-snap-align: start;
 }
 
+/* Horizontal project deck: hide the scrollbar, snap handled by JS + CSS. */
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
 body {
   background: var(--color-background);
   color: var(--color-foreground);

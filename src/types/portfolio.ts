@@ -157,3 +157,24 @@ export interface ProjectPanelData {
   disclaimerNote?: string;
   accent: "company" | "security";
 }
+
+/** A single project slide in the horizontal, illustration-first deck.
+ * Kept intentionally short so each slide is scannable at a glance. */
+export interface DeckItem {
+  id: string;
+  /** Selects the bespoke illustration rendered in ProjectArt. */
+  art: string;
+  /** Small label above the title, e.g. "3DLabs · 위성·드론 영상처리". */
+  kicker: string;
+  titleKo: string;
+  titleEn?: string;
+  /** One short sentence describing what the project does. */
+  oneLiner: string;
+  /** 2–3 short phrases (no full sentences). */
+  bullets: string[];
+  technologies: string[];
+  metric?: ProjectMetric;
+  link?: ProjectLink;
+  /** Optional short disclaimer. */
+  note?: string;
+}

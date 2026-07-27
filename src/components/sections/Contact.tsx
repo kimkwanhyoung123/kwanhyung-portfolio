@@ -15,7 +15,7 @@ export default function Contact() {
     >
       <Container>
         <Reveal>
-          <SectionTitle number="05" title="Contact" />
+          <SectionTitle number="04" title="Contact" />
         </Reveal>
 
         <Reveal delay={0.05}>

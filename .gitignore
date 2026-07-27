@@ -51,3 +51,13 @@ next-env.d.ts
 
 # private job-application portfolio (PDF/HTML with non-public research) — never publish
 /security-portfolio
+
+# private job-application materials (resume with photo/personal info) — never publish
+/coupang
+/cj
+/kakaomobility
+/socar
+/자율주행
+
+# personal ID photo — never publish
+/*_증명사진.png
