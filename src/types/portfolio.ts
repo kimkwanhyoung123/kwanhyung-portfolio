@@ -222,8 +222,16 @@ export interface DeckItem {
   link?: ProjectLink;
   /** Optional short disclaimer. */
   note?: string;
-  /** True for the 4 headline projects shown as deep, full-width panels. */
-  featured?: boolean;
-  /** FDE 7-part breakdown, only set on featured projects. */
+  /** Which category the project belongs to. "work" renders as a deep,
+   * full-width panel; the others render as compact cards. */
+  group: "work" | "security" | "embedded";
+  /** FDE 7-part breakdown, only set on Work projects. */
   detail?: FdeDetail;
+  /** Optional real image (screenshot / infographic) shown instead of the
+   * schematic ProjectArt diagram. Path under /public. */
+  image?: string;
+  imageAlt?: string;
+  /** Natural pixel size of `image`, used to avoid layout shift. */
+  imageWidth?: number;
+  imageHeight?: number;
 }

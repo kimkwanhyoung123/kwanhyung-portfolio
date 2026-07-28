@@ -1,10 +1,11 @@
+import Image from "next/image";
 import ProjectArt from "@/components/ui/ProjectArt";
 import Reveal from "@/components/ui/Reveal";
 import Container from "@/components/ui/Container";
 import { deckItems } from "@/data/deck";
 import type { DeckItem, FdeDetail } from "@/types/portfolio";
 
-/* Labels for the FDE 7-part breakdown shown on featured projects. */
+/* Labels for the FDE 7-part breakdown shown on Work projects. */
 const FDE_ROWS: { key: keyof FdeDetail; label: string; en: string }[] = [
   { key: "customerContext", label: "고객 맥락", en: "CONTEXT" },
   { key: "ambiguity", label: "불명확성", en: "AMBIGUITY" },
@@ -27,26 +28,68 @@ function MetricChip({ item }: { item: DeckItem }) {
   );
 }
 
-function FeaturedPanel({ item, index }: { item: DeckItem; index: number }) {
+/* Large media for a Work panel: real image if present, else schematic. */
+function WorkMedia({ item }: { item: DeckItem }) {
+  if (item.image) {
+    return (
+      <Image
+        src={item.image}
+        alt={item.imageAlt ?? item.titleKo}
+        width={item.imageWidth ?? 1600}
+        height={item.imageHeight ?? 1000}
+        className="h-auto w-full rounded-2xl border border-border"
+        sizes="(min-width: 1024px) 50vw, 100vw"
+        unoptimized
+      />
+    );
+  }
+  return (
+    <ProjectArt
+      art={item.art}
+      className="aspect-[4/3] w-full rounded-2xl border border-border bg-background/60"
+    />
+  );
+}
+
+/* Thumbnail media for a personal-project card. */
+function CardMedia({ item }: { item: DeckItem }) {
+  if (item.image) {
+    return (
+      <div className="relative mb-4 aspect-[16/9] w-full overflow-hidden rounded-lg border border-border bg-background/60">
+        <Image
+          src={item.image}
+          alt={item.imageAlt ?? item.titleKo}
+          fill
+          className="object-cover object-top"
+          sizes="(min-width: 1024px) 33vw, 100vw"
+          unoptimized
+        />
+      </div>
+    );
+  }
+  return (
+    <ProjectArt
+      art={item.art}
+      className="mb-4 aspect-[16/9] w-full rounded-lg border border-border bg-background/60"
+    />
+  );
+}
+
+function WorkPanel({ item, index }: { item: DeckItem; index: number }) {
   const imageFirst = index % 2 === 0;
   return (
     <article className="scroll-mt-20 py-14 lg:py-16">
       <Container>
         <div className="grid items-center gap-8 lg:grid-cols-2 lg:gap-14">
-          {/* diagram */}
           <Reveal className={imageFirst ? "lg:order-1" : "lg:order-2"}>
             <figure>
-              <ProjectArt
-                art={item.art}
-                className="aspect-[4/3] w-full rounded-2xl border border-border bg-background/60"
-              />
+              <WorkMedia item={item} />
               <figcaption className="mt-3 text-center font-mono text-xs text-muted">
                 {item.oneLiner}
               </figcaption>
             </figure>
           </Reveal>
 
-          {/* text */}
           <Reveal delay={0.05} className={imageFirst ? "lg:order-2" : "lg:order-1"}>
             <div className="space-y-5">
               <div className="flex items-center gap-3">
@@ -76,7 +119,6 @@ function FeaturedPanel({ item, index }: { item: DeckItem; index: number }) {
                 </span>
               </div>
 
-              {/* FDE structured breakdown */}
               {item.detail ? (
                 <dl className="space-y-2.5 border-l border-border pl-4">
                   {FDE_ROWS.map(({ key, label, en }) => (
@@ -100,18 +142,6 @@ function FeaturedPanel({ item, index }: { item: DeckItem; index: number }) {
                 </dl>
               ) : null}
 
-              {item.link ? (
-                <a
-                  href={item.link.href}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 rounded-md border border-border px-4 py-2 text-xs font-medium text-foreground transition-colors hover:border-accent hover:text-accent focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent"
-                >
-                  {item.link.label}
-                  <span className="sr-only"> (새 창에서 열림)</span>
-                </a>
-              ) : null}
-
               {item.note ? (
                 <p className="text-xs italic text-muted/80">{item.note}</p>
               ) : null}
@@ -123,13 +153,10 @@ function FeaturedPanel({ item, index }: { item: DeckItem; index: number }) {
   );
 }
 
-function AdditionalCard({ item }: { item: DeckItem }) {
+function ProjectCard({ item }: { item: DeckItem }) {
   return (
     <article className="flex h-full flex-col rounded-2xl border border-border bg-surface/40 p-5">
-      <ProjectArt
-        art={item.art}
-        className="mb-4 aspect-[16/9] w-full rounded-lg border border-border bg-background/60"
-      />
+      <CardMedia item={item} />
       <p className="font-mono text-[11px] uppercase tracking-[0.16em] text-accent">
         {item.kicker}
       </p>
@@ -170,9 +197,29 @@ function AdditionalCard({ item }: { item: DeckItem }) {
   );
 }
 
+function CardGroup({ label, items }: { label: string; items: DeckItem[] }) {
+  return (
+    <div className="mt-10">
+      <Reveal>
+        <h3 className="font-mono text-sm uppercase tracking-[0.18em] text-accent">
+          {label}
+        </h3>
+      </Reveal>
+      <div className="mt-5 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+        {items.map((item) => (
+          <Reveal key={item.id}>
+            <ProjectCard item={item} />
+          </Reveal>
+        ))}
+      </div>
+    </div>
+  );
+}
+
 export default function ProjectsDeck() {
-  const featured = deckItems.filter((i) => i.featured);
-  const additional = deckItems.filter((i) => !i.featured);
+  const work = deckItems.filter((i) => i.group === "work");
+  const security = deckItems.filter((i) => i.group === "security");
+  const embedded = deckItems.filter((i) => i.group === "embedded");
 
   return (
     <section id="projects" aria-label="프로젝트" className="scroll-mt-20 pt-24">
@@ -182,37 +229,33 @@ export default function ProjectsDeck() {
             03 · Work
           </p>
           <h2 className="mt-2 text-2xl font-bold text-foreground sm:text-3xl">
-            Selected Work
+            Work
           </h2>
           <p className="mt-2 max-w-xl text-sm text-muted">
-            문제 정의 → 설계 → 통합·배포 → 검증 → 임팩트까지, 대표 프로젝트 네
-            건을 흐름 중심으로 정리했습니다.
+            문제 정의 → 설계 → 통합·배포 → 검증 → 임팩트까지, 실무 프로젝트를
+            흐름 중심으로 정리했습니다.
           </p>
         </Reveal>
       </Container>
 
-      {featured.map((item, i) => (
-        <FeaturedPanel key={item.id} item={item} index={i} />
+      {work.map((item, i) => (
+        <WorkPanel key={item.id} item={item} index={i} />
       ))}
 
-      {/* Additional work */}
       <Container>
         <Reveal>
           <h2 className="mt-16 text-2xl font-bold text-foreground sm:text-3xl">
-            Additional Work
+            Personal Projects
           </h2>
           <p className="mt-2 max-w-xl text-sm text-muted">
-            그 외 실무·연구·개인 프로젝트.
+            개인 연구·실험으로 진행한 프로젝트.
           </p>
         </Reveal>
 
-        <div className="mt-8 grid gap-6 pb-8 sm:grid-cols-2 lg:grid-cols-3">
-          {additional.map((item) => (
-            <Reveal key={item.id}>
-              <AdditionalCard item={item} />
-            </Reveal>
-          ))}
-        </div>
+        <CardGroup label="Security" items={security} />
+        <CardGroup label="Embedded & Mobile" items={embedded} />
+
+        <div className="pb-8" />
       </Container>
     </section>
   );

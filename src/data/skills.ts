@@ -5,6 +5,8 @@ export const techStack: TechLogo[] = [
   { name: "C#", src: "/logos/csharp.svg" },
   { name: "C++", src: "/logos/cplusplus.svg" },
   { name: "Python", src: "/logos/python.svg" },
+  { name: "Java", src: "/logos/java.svg" },
+  { name: "Spring", src: "/logos/spring.svg" },
   { name: ".NET", src: "/logos/dotnet.svg" },
   { name: "OpenCV", src: "/logos/opencv.svg" },
   { name: "Git", src: "/logos/git.svg" },
