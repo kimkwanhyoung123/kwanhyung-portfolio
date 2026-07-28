@@ -107,7 +107,7 @@ function WorkPanel({ item, index }: { item: DeckItem; index: number }) {
       {/* large media (wider, so the diagram/infographic is readable) */}
       <div className="mx-auto mt-8 w-full max-w-6xl px-6 sm:px-8">
         <Reveal delay={0.05}>
-          <figure>
+          <figure className="sm:px-[2cm]">
             <WorkMedia item={item} />
             <figcaption className="mt-3 text-center font-mono text-xs text-muted">
               {item.oneLiner}
