@@ -25,6 +25,25 @@ export interface CoreStrength {
   description: string;
 }
 
+/** A numbered feature/capability block (e.g. system-profile, what-I-bring). */
+export interface NumberedItem {
+  title: string;
+  description: string;
+}
+
+/** A headline statistic shown in the experience metrics band. */
+export interface StatMetric {
+  value: string;
+  label: string;
+}
+
+/** One step in the engineering playbook (01 → 02 → 03). */
+export interface PlaybookStep {
+  step: string;
+  title: string;
+  description: string;
+}
+
 export interface SkillGroups {
   languages: string[];
   engineering: string[];

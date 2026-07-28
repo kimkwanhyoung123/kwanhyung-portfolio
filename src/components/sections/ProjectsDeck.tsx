@@ -30,7 +30,7 @@ function MetricChip({ item }: { item: DeckItem }) {
 function FeaturedPanel({ item, index }: { item: DeckItem; index: number }) {
   const imageFirst = index % 2 === 0;
   return (
-    <article className="snap-panel flex min-h-svh scroll-mt-20 items-center py-16">
+    <article className="scroll-mt-20 py-14 lg:py-16">
       <Container>
         <div className="grid items-center gap-8 lg:grid-cols-2 lg:gap-14">
           {/* diagram */}
@@ -179,10 +179,10 @@ export default function ProjectsDeck() {
       <Container>
         <Reveal>
           <p className="font-mono text-xs uppercase tracking-[0.2em] text-accent">
-            03 · Projects
+            03 · Work
           </p>
           <h2 className="mt-2 text-2xl font-bold text-foreground sm:text-3xl">
-            Featured Projects
+            Selected Work
           </h2>
           <p className="mt-2 max-w-xl text-sm text-muted">
             문제 정의 → 설계 → 통합·배포 → 검증 → 임팩트까지, 대표 프로젝트 네
