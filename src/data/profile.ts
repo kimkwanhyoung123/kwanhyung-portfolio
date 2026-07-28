@@ -10,7 +10,7 @@ import type {
 
 export const profile: Profile = {
   nameKo: "김관형",
-  nameEn: "Kwan Hyung Kim",
+  nameEn: "Kwan Hyoung Kim",
   headline: "복잡한 현장 문제를 실제로 동작하는 소프트웨어로 전환합니다.",
   heroParagraphs: [
     "고객과 사용자의 요구사항을 구체적인 기술 과제로 정의하고, C#과 C++ 기반 영상처리 시스템과 데이터 파이프라인을 설계·구현해 왔습니다.",

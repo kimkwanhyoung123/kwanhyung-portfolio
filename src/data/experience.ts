@@ -1,6 +1,31 @@
 import type { ExperienceEntry } from "@/types/portfolio";
 
+/** Career history in chronological order (oldest first). */
 export const experience: ExperienceEntry[] = [
+  {
+    id: "geospatial-academy",
+    tabLabel: "공간정보 아카데미",
+    role: "SW 개발 교육과정 · 공간정보 아카데미",
+    period: "2023.06 ~ 2023.11",
+    bullets: [
+      "자바(Java)와 Spring 프레임워크 기초를 학습했습니다.",
+      "관계형 데이터베이스와 SQL 기초를 학습했습니다.",
+      "웹 개발 기초(프론트엔드·백엔드 요청 흐름)를 학습했습니다.",
+      "최종 프로젝트로 GPS 위치·경로 공유와 추락 시 주변 AED 안내 기능을 갖춘 러닝 애플리케이션을 개발했습니다.",
+    ],
+  },
+  {
+    id: "podo-web",
+    tabLabel: "포도(주)",
+    role: "Web Developer @ 포도(주)",
+    period: "2024.01 ~ 2024.06",
+    bullets: [
+      "산불 위험정보를 웹·지도로 제공하는 공공 안전 서비스를 개발·운영했습니다.",
+      "화면 → 요청 → 응답 → 데이터 조회 → 지도 표출 단계로 오류를 재현하고 원인을 추적했습니다.",
+      "수정 배포 후 회귀(변경 영향도)를 검증했습니다.",
+      "공간정보 조회와 지도 레이어 표출 기능을 개발했습니다.",
+    ],
+  },
   {
     id: "3dlabs",
     tabLabel: "3DLabs",
@@ -15,30 +40,6 @@ export const experience: ExperienceEntry[] = [
       "고객 납품 환경에서 발생하는 DLL·좌표계·배포 오류를 현장 관점에서 직접 재현하고 원인을 추적해 해결했습니다.",
       "납품 이후 고객과 직접 커뮤니케이션하며 불편사항과 개선 요청을 접수하고, 내부 회의에서 반영 범위를 정한 뒤 수정 버전을 재납품하는 주기를 반복했습니다.",
       "개발 결과를 설계서, 처리 흐름도, 시험 절차와 사용자 문서로 정리해 고객에게 전달했습니다.",
-    ],
-  },
-  {
-    id: "geospatial-academy",
-    tabLabel: "공간정보 아카데미",
-    role: "Application Developer @ 공간정보 아카데미",
-    period: "2023.06 ~ 2023.11",
-    bullets: [
-      "러닝 크루의 실제 사용 시나리오를 분석해 위치 기반 모바일 서비스로 구현했습니다.",
-      "사용자 이동 경로와 구성원 위치를 실시간으로 지도에 표출했습니다.",
-      "스마트폰 추락 감지 시 주변 AED 위치를 안내하는 긴급 대응 기능을 개발했습니다.",
-      "요구사항 정의, 화면 설계, 위치 데이터 처리와 Android 애플리케이션 구현을 수행했습니다.",
-    ],
-  },
-  {
-    id: "security-research",
-    tabLabel: "Security Research",
-    role: "Independent Security Researcher",
-    period: "2026 ~ Present",
-    bullets: [
-      "웹 서비스와 브라우저 지갑의 사용자 흐름을 분석하고 권한·인증·거래 처리 과정의 위험 시나리오를 도출했습니다.",
-      "재현 가능한 테스트 환경과 PoC를 구축해 문제의 영향과 발생 조건을 검증했습니다.",
-      "로그, 영상, 실행 절차와 개선 방향을 포함한 기술 보고서를 작성했습니다.",
-      "제품 동작을 사용자와 공격자 관점에서 검토하며 예외 상황과 보안 경계를 분석했습니다.",
     ],
   },
 ];

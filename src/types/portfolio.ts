@@ -51,6 +51,13 @@ export interface SkillGroups {
   aboutHighlight: string[];
 }
 
+/** A tech-stack logo shown as an image tile in About. */
+export interface TechLogo {
+  name: string;
+  /** Path under /public. */
+  src: string;
+}
+
 export interface ExperienceEntry {
   id: string;
   tabLabel: string;

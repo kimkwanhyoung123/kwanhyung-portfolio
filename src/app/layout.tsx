@@ -22,7 +22,7 @@ const jetbrainsMono = JetBrains_Mono({
   display: "swap",
 });
 
-const title = "김관형 | Kwan Hyung Kim — Portfolio";
+const title = "김관형 | Kwan Hyoung Kim — Portfolio";
 const description =
   "복잡한 현장 문제를 실제로 동작하는 소프트웨어로 전환하는 김관형의 포트폴리오입니다.";
 
