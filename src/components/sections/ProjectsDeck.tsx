@@ -37,8 +37,8 @@ function WorkMedia({ item }: { item: DeckItem }) {
         alt={item.imageAlt ?? item.titleKo}
         width={item.imageWidth ?? 1600}
         height={item.imageHeight ?? 1000}
-        className="h-auto w-full rounded-2xl border border-border"
-        sizes="(min-width: 1024px) 50vw, 100vw"
+        className="h-auto w-full rounded-2xl border border-border shadow-[0_18px_50px_-20px_rgba(0,0,0,0.75)]"
+        sizes="(min-width: 1152px) 1152px, 100vw"
         unoptimized
       />
     );
@@ -46,7 +46,7 @@ function WorkMedia({ item }: { item: DeckItem }) {
   return (
     <ProjectArt
       art={item.art}
-      className="aspect-[4/3] w-full rounded-2xl border border-border bg-background/60"
+      className="aspect-[16/9] w-full rounded-2xl border border-border bg-background/60"
     />
   );
 }
@@ -76,79 +76,73 @@ function CardMedia({ item }: { item: DeckItem }) {
 }
 
 function WorkPanel({ item, index }: { item: DeckItem; index: number }) {
-  const imageFirst = index % 2 === 0;
   return (
-    <article className="scroll-mt-20 py-14 lg:py-16">
-      <Container>
-        <div className="grid items-center gap-8 lg:grid-cols-2 lg:gap-14">
-          <Reveal className={imageFirst ? "lg:order-1" : "lg:order-2"}>
-            <figure>
-              <WorkMedia item={item} />
-              <figcaption className="mt-3 text-center font-mono text-xs text-muted">
-                {item.oneLiner}
-              </figcaption>
-            </figure>
-          </Reveal>
+    <article className="scroll-mt-20 py-14 lg:py-20">
+      {/* header (comfortable reading width) */}
+      <div className="mx-auto w-full max-w-5xl px-6 sm:px-8">
+        <Reveal>
+          <div className="flex items-center gap-3">
+            <span className="font-mono text-sm text-accent/70">
+              {String(index + 1).padStart(2, "0")}
+            </span>
+            <span className="font-mono text-xs uppercase tracking-[0.18em] text-accent">
+              {item.kicker}
+            </span>
+          </div>
+          <h3 className="mt-3 text-2xl font-bold text-foreground sm:text-3xl">
+            {item.titleKo}
+          </h3>
+          {item.titleEn ? (
+            <p className="mt-1 font-inter text-sm text-muted">{item.titleEn}</p>
+          ) : null}
+          <div className="mt-4 flex flex-wrap items-center gap-3">
+            <MetricChip item={item} />
+            <span className="font-mono text-xs text-muted">
+              {item.technologies.join(" · ")}
+            </span>
+          </div>
+        </Reveal>
+      </div>
 
-          <Reveal delay={0.05} className={imageFirst ? "lg:order-2" : "lg:order-1"}>
-            <div className="space-y-5">
-              <div className="flex items-center gap-3">
-                <span className="font-mono text-sm text-accent/70">
-                  {String(index + 1).padStart(2, "0")}
-                </span>
-                <span className="font-mono text-xs uppercase tracking-[0.18em] text-accent">
-                  {item.kicker}
-                </span>
-              </div>
+      {/* large media (wider, so the diagram/infographic is readable) */}
+      <div className="mx-auto mt-8 w-full max-w-6xl px-6 sm:px-8">
+        <Reveal delay={0.05}>
+          <figure>
+            <WorkMedia item={item} />
+            <figcaption className="mt-3 text-center font-mono text-xs text-muted">
+              {item.oneLiner}
+            </figcaption>
+          </figure>
+        </Reveal>
+      </div>
 
-              <div>
-                <h3 className="text-2xl font-bold text-foreground sm:text-3xl">
-                  {item.titleKo}
-                </h3>
-                {item.titleEn ? (
-                  <p className="mt-1 font-inter text-sm text-muted">
-                    {item.titleEn}
-                  </p>
-                ) : null}
-              </div>
-
-              <div className="flex flex-wrap items-center gap-3">
-                <MetricChip item={item} />
-                <span className="font-mono text-xs text-muted">
-                  {item.technologies.join(" · ")}
-                </span>
-              </div>
-
-              {item.detail ? (
-                <dl className="space-y-2.5 border-l border-border pl-4">
-                  {FDE_ROWS.map(({ key, label, en }) => (
-                    <div
-                      key={key}
-                      className="grid gap-x-4 gap-y-0.5 sm:grid-cols-[6.5rem_1fr]"
-                    >
-                      <dt className="flex flex-col leading-tight">
-                        <span className="whitespace-nowrap text-sm font-semibold text-foreground">
-                          {label}
-                        </span>
-                        <span className="font-mono text-[10px] uppercase tracking-wider text-accent/60">
-                          {en}
-                        </span>
-                      </dt>
-                      <dd className="text-sm leading-relaxed text-muted">
-                        {item.detail![key]}
-                      </dd>
-                    </div>
-                  ))}
-                </dl>
-              ) : null}
-
-              {item.note ? (
-                <p className="text-xs italic text-muted/80">{item.note}</p>
-              ) : null}
-            </div>
+      {/* FDE breakdown below, two columns */}
+      {item.detail ? (
+        <div className="mx-auto mt-10 w-full max-w-5xl px-6 sm:px-8">
+          <Reveal delay={0.1}>
+            <dl className="grid gap-x-10 gap-y-5 sm:grid-cols-2">
+              {FDE_ROWS.map(({ key, label, en }) => (
+                <div key={key}>
+                  <dt className="flex items-baseline gap-2">
+                    <span className="text-sm font-semibold text-foreground">
+                      {label}
+                    </span>
+                    <span className="font-mono text-[10px] uppercase tracking-wider text-accent/60">
+                      {en}
+                    </span>
+                  </dt>
+                  <dd className="mt-1 text-sm leading-relaxed text-muted">
+                    {item.detail![key]}
+                  </dd>
+                </div>
+              ))}
+            </dl>
+            {item.note ? (
+              <p className="mt-6 text-xs italic text-muted/80">{item.note}</p>
+            ) : null}
           </Reveal>
         </div>
-      </Container>
+      ) : null}
     </article>
   );
 }
