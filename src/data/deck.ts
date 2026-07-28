@@ -7,36 +7,6 @@ import type { DeckItem } from "@/types/portfolio";
 export const deckItems: DeckItem[] = [
   /* ---- Work ---- */
   {
-    id: "national-fire-web",
-    group: "work",
-    art: "opsflow",
-    kicker: "포도(주) · 웹·지도 개발",
-    titleKo: "포도 웹 개발 — 국가산불위험예보",
-    titleEn: "Wildfire Risk Web Service",
-    oneLiner: "산불 위험정보를 웹·지도로 제공하는 공공 안전 서비스를 개발·운영.",
-    bullets: [
-      "화면→요청→응답→데이터→지도 단계로 오류 재현",
-      "수정 배포 후 회귀(변경 영향도) 검증",
-      "공간정보 조회 · 지도 레이어 표출",
-    ],
-    technologies: ["Web", "공간정보", "Map"],
-    detail: {
-      customerContext:
-        "공공 기관과 국민이 산불 위험정보를 웹·지도로 확인해야 했고, 지역별 위험도를 지도 서비스로 제공·운영했습니다.",
-      ambiguity:
-        "여러 화면·서버·데이터·지도 계층 중 어디서 값이 틀어지는지 처음엔 명확하지 않았습니다.",
-      engineering:
-        "화면 → 요청 → 응답 → 데이터 조회 → 지도 표출 단계로 나눠, 각 경계에서 로그와 응답을 비교하며 문제를 좁혔습니다.",
-      delivery:
-        "공간정보 조회와 지도 레이어 표출 기능을 개발해 서비스에 반영하고 운영했습니다.",
-      validation:
-        "수정 배포 후 회귀(변경 영향도)를 검증해 다른 기능에 영향이 없는지 확인했습니다.",
-      impact: "산불 위험정보를 안정적으로 웹·지도로 제공했습니다.",
-      reusableLearning:
-        "단계별 장애 분석(로그 확인→응답 비교→데이터 검증→회귀 테스트) 절차를 이후 문제 해결에 재사용했습니다.",
-    },
-  },
-  {
     id: "image-processing-platform",
     group: "work",
     art: "pipeline",
