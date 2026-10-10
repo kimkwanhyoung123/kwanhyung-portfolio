@@ -7,6 +7,7 @@ import { contact } from "@/data/profile";
 export default function Contact() {
   const [primaryLink, ...secondaryLinks] = contact.links;
 
+
   return (
     <section
       id="contact"
@@ -32,38 +33,42 @@ export default function Contact() {
           </div>
         </Reveal>
 
-        <Reveal delay={0.15}>
-          <div className="mt-10 flex flex-wrap items-center gap-6">
-            <Button
-              href={primaryLink.href}
-              variant="primary"
-              {...(primaryLink.external
-                ? { target: "_blank", rel: "noopener noreferrer" }
-                : {})}
-            >
-              {primaryLink.label}
-            </Button>
+        {primaryLink ? (
+          <Reveal delay={0.15}>
+            <div className="mt-10 flex flex-wrap items-center gap-6">
+              <Button
+                href={primaryLink.href}
+                variant="primary"
+                {...(primaryLink.external
+                  ? { target: "_blank", rel: "noopener noreferrer" }
+                  : {})}
+              >
+                {primaryLink.label}
+              </Button>
 
-            <ul className="flex flex-wrap gap-x-6 gap-y-2 font-mono text-sm text-muted">
-              {secondaryLinks.map((link) => (
-                <li key={link.label}>
-                  <a
-                    href={link.href}
-                    className="transition-colors hover:text-accent focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent"
-                    {...(link.external
-                      ? { target: "_blank", rel: "noopener noreferrer" }
-                      : {})}
-                  >
-                    {link.label}
-                    {link.external ? (
-                      <span className="sr-only"> (새 창에서 열림)</span>
-                    ) : null}
-                  </a>
-                </li>
-              ))}
-            </ul>
-          </div>
-        </Reveal>
+              {secondaryLinks.length > 0 ? (
+                <ul className="flex flex-wrap gap-x-6 gap-y-2 font-mono text-sm text-muted">
+                  {secondaryLinks.map((link) => (
+                    <li key={link.label}>
+                      <a
+                        href={link.href}
+                        className="transition-colors hover:text-accent focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent"
+                        {...(link.external
+                          ? { target: "_blank", rel: "noopener noreferrer" }
+                          : {})}
+                      >
+                        {link.label}
+                        {link.external ? (
+                          <span className="sr-only"> (새 창에서 열림)</span>
+                        ) : null}
+                      </a>
+                    </li>
+                  ))}
+                </ul>
+              ) : null}
+            </div>
+          </Reveal>
+        ) : null}
       </Container>
     </section>
   );
