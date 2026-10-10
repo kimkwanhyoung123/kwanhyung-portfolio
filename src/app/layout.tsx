@@ -22,9 +22,9 @@ const jetbrainsMono = JetBrains_Mono({
   display: "swap",
 });
 
-const title = "김관형 | Kwan Hyoung Kim — Portfolio";
+const title = "김관형 | Kwan Hyoung Kim — Security Portfolio";
 const description =
-  "복잡한 현장 문제를 실제로 동작하는 소프트웨어로 전환하는 김관형의 포트폴리오입니다.";
+  "소프트웨어를 만들어 본 시선으로 취약점을 찾는 김관형의 보안 포트폴리오 — 모의해킹·취약점 진단, MetaMask 버그바운티(HackerOne), CTF.";
 
 export const metadata: Metadata = {
   // Absolute base used to resolve the OG image URL below. Defaults to the
@@ -45,7 +45,7 @@ export const metadata: Metadata = {
         url: "/images/og/og-image.png",
         width: 1200,
         height: 630,
-        alt: "김관형 포트폴리오",
+        alt: "김관형 보안 포트폴리오",
       },
     ],
   },
