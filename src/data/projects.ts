@@ -17,7 +17,7 @@ export const featuredProjects: FeaturedProject[] = [
     integration:
       "여러 계열의 센서 영상 데이터, GDAL 기반 공간정보 처리, C++ 영상처리 모듈과 C# 애플리케이션을 연결했습니다.",
     result:
-      "분산된 처리 도구 4개를 하나의 흐름으로 통합하고, 반복 작업과 파일 이동 절차를 개선해 전체 처리 시간을 약 20% 단축했습니다. 사용자는 하나의 소프트웨어에서 처리·결과 확인·픽셀 단위 분석까지 연속 수행할 수 있게 됐습니다.",
+      "분산된 처리 도구 4개를 하나의 흐름으로 통합하고, 반복 작업과 파일 이동 절차를 개선해 전체 처리 시간을 약 20% 단축했습니다. 사용자는 하나의 소프트웨어에서 처리·결과 확인·픽셀 단위 분석까지 연속 수행할 수 있게 됐습니다. 본 개발 성과를 바탕으로 「무인기 다중 초분광 센서 영상처리 SW」 특허(출원번호 10-2025-0200304, 청구항 9항)에 공동발명자로 등재되어 2026년 7월 특허결정을 받았습니다.",
     keyContributions: [
       "C# UI ↔ C++ 영상처리 모듈 인터페이스 설계",
       "센서별 메타데이터 표준화",
@@ -329,23 +329,24 @@ export const otherProjects: OtherProject[] = [
 export const securityResearchProjects: OtherProject[] = [
   {
     id: "bug-bounty-security-research",
-    titleKo: "Bug Bounty Security Research",
+    titleKo: "Bug Bounty · MetaMask (HackerOne)",
     description:
-      "실제 서비스와 오픈소스 제품의 사용자 흐름·권한 처리·거래 구조를 분석하고, 보안 문제가 의심되는 동작을 재현 가능한 PoC와 기술 보고서로 작성해 제보했습니다. 문제 발생 조건을 명확히 하기 위해 테스트 환경을 구성하고, 실행 영상·로그·프레임·코드·재현 절차를 증거 자료로 정리했습니다.",
+      "글로벌 Web3 지갑 MetaMask의 버그바운티 프로그램에 참여해, 공개된 오픈소스 코드베이스를 대상으로 소스코드 감사와 보안 로직 분석을 수행했습니다. 의심되는 동작은 로컬 테스트 환경에서 재현해 발생 조건을 좁히고, 재현 가능한 PoC와 영향도 분석을 포함한 기술 보고서로 정리해 HackerOne 책임공개 절차로 제보했습니다. 제보한 취약점 1건이 유효 취약점으로 인정되어 버그바운티 보상을 획득했습니다(2026.09).",
     keyExperience: [
-      "인증·권한·거래 흐름 분석",
+      "오픈소스 코드베이스 소스코드 감사",
+      "인증·권한·거래 처리 로직 분석",
+      "로컬 테스트 환경 구성 및 재현",
       "비정상 동작의 발생 조건 검증",
       "재현 가능한 PoC 구현",
-      "테스트 환경 구성",
-      "로그·실행 결과 수집",
-      "단계별 기술 보고서 작성",
-      "피드백 반영한 시나리오·영향도 보완",
+      "영향도 분석 및 기술 보고서 작성",
+      "HackerOne 책임공개 절차 대응 및 보완",
     ],
     technologies: [
-      "Web Security",
+      "Source Code Audit",
+      "Web3 / Wallet Security",
       "Authorization",
-      "Transaction Security",
       "PoC",
+      "HackerOne",
       "Technical Writing",
     ],
     visualType: "diagram",
@@ -356,13 +357,13 @@ export const securityResearchProjects: OtherProject[] = [
       },
     ],
     processFlow: [
-      "제품 기능과 사용자 흐름 분석",
-      "권한·거래 경계 식별",
+      "오픈소스 코드베이스 확보 및 구조 파악",
+      "보안 로직·권한 경계 식별",
       "위험 시나리오 가설 수립",
-      "독립 테스트 환경 구성",
-      "PoC 및 반복 검증",
-      "로그·영상·실행 결과 수집",
-      "기술 보고서 작성 및 제출",
+      "로컬 테스트 환경 구성",
+      "PoC 및 반복 재현 검증",
+      "로그·실행 결과 증거 수집",
+      "HackerOne 제보 → 유효 취약점 인정·보상",
     ],
     deliverables: [
       "01 Reproducible PoC",
@@ -372,7 +373,7 @@ export const securityResearchProjects: OtherProject[] = [
       "05 Technical Report",
     ],
     disclaimerNote:
-      "비공개 책임 공개 절차를 준수하기 위해 제품명, 상세 공격 절차, PoC 코드와 증거 화면은 공개하지 않았습니다.",
+      "책임공개(Responsible Disclosure) 절차를 준수하기 위해 상세 공격 절차, PoC 코드와 증거 화면은 공개하지 않았습니다.",
   },
   {
     id: "ctf-security-challenges",

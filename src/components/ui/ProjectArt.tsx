@@ -471,7 +471,7 @@ function Authz() {
 
       {/* disclosure timeline */}
       <line x1="60" y1="288" x2="300" y2="288" stroke={LINE} strokeWidth="1.5" />
-      {["제보", "재현 요청", "검토중"].map((t, i) => (
+      {["소스코드 감사", "PoC 제보", "유효 인정"].map((t, i) => (
         <g key={t}>
           <circle cx={60 + i * 120} cy="288" r="5" fill={i === 2 ? AC : FILL} stroke={i === 2 ? AC : LINE} strokeWidth="1.5" />
           <text x={60 + i * 120} y="310" textAnchor="middle" fontFamily={UI} fontSize="9" fill={MUT}>
@@ -480,7 +480,7 @@ function Authz() {
         </g>
       ))}
       <text x="60" y="338" fontFamily={UI} fontSize="8.5" fill={DIM}>
-        제품명 · 상세 절차 · PoC는 비공개(책임공개)
+        MetaMask · HackerOne — 상세 절차 · PoC는 비공개(책임공개)
       </text>
     </Base>
   );
