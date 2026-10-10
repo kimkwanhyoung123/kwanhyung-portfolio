@@ -6,7 +6,7 @@ import { skills } from "@/data/skills";
 
 const SKILL_GROUPS: { label: string; items: string[] }[] = [
   { label: "Languages", items: skills.languages },
-  { label: "Engineering", items: skills.engineering },
+  { label: "Security", items: skills.engineering },
   { label: "Domain · Tools", items: skills.domainAndTools },
 ];
 
@@ -15,7 +15,7 @@ export default function Capabilities() {
     <section id="capabilities" className="scroll-mt-20 py-24" aria-label="Skills">
       <Container>
         <Reveal>
-          <SectionTitle number="04" title="Engineering Capabilities" />
+          <SectionTitle number="04" title="Security Capabilities" />
         </Reveal>
 
         {/* 6 numbered focus areas */}

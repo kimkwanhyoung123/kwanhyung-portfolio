@@ -5,10 +5,10 @@ import { playbook } from "@/data/profile";
 
 export default function Playbook() {
   return (
-    <section className="scroll-mt-20 py-16" aria-label="Engineering Playbook">
+    <section className="scroll-mt-20 py-16" aria-label="Security Playbook">
       <Container>
         <Reveal>
-          <SectionTitle title="Engineering Playbook" />
+          <SectionTitle title="Security Playbook" />
         </Reveal>
 
         <ol className="mt-10 grid gap-6 md:grid-cols-3">

@@ -5,15 +5,17 @@ import Container from "@/components/ui/Container";
 import { deckItems } from "@/data/deck";
 import type { DeckItem, FdeDetail } from "@/types/portfolio";
 
-/* Labels for the FDE 7-part breakdown shown on Work projects. */
+/* Labels for the 7-part breakdown shown on security panels — the shape of an
+ * assessment report: what was in scope, the hypothesis, the analysis, the
+ * reproduction, how it was verified, the impact and the remediation. */
 const FDE_ROWS: { key: keyof FdeDetail; label: string; en: string }[] = [
-  { key: "customerContext", label: "고객 맥락", en: "CONTEXT" },
-  { key: "ambiguity", label: "불명확성", en: "AMBIGUITY" },
-  { key: "engineering", label: "설계", en: "ENGINEERING" },
-  { key: "delivery", label: "통합·배포", en: "DELIVERY" },
+  { key: "customerContext", label: "대상 · 범위", en: "TARGET" },
+  { key: "ambiguity", label: "가설", en: "HYPOTHESIS" },
+  { key: "engineering", label: "분석", en: "ANALYSIS" },
+  { key: "delivery", label: "재현 · PoC", en: "REPRODUCTION" },
   { key: "validation", label: "검증", en: "VALIDATION" },
-  { key: "impact", label: "임팩트", en: "IMPACT" },
-  { key: "reusableLearning", label: "재사용 학습", en: "REUSABLE" },
+  { key: "impact", label: "결과 · 영향도", en: "IMPACT" },
+  { key: "reusableLearning", label: "조치 · 개선안", en: "REMEDIATION" },
 ];
 
 function MetricChip({ item }: { item: DeckItem }) {
@@ -220,14 +222,14 @@ export default function ProjectsDeck() {
       <Container>
         <Reveal>
           <p className="font-mono text-xs uppercase tracking-[0.2em] text-accent">
-            03 · Work
+            03 · Security
           </p>
           <h2 className="mt-2 text-2xl font-bold text-foreground sm:text-3xl">
-            Work
+            Security Work
           </h2>
           <p className="mt-2 max-w-xl text-sm text-muted">
-            문제 정의 → 설계 → 통합·배포 → 검증 → 임팩트까지, 실무 프로젝트를
-            흐름 중심으로 정리했습니다.
+            대상 정의 → 가설 → 분석 → 재현·PoC → 검증 → 조치까지, 보안 작업을
+            진단 보고서의 흐름으로 정리했습니다.
           </p>
         </Reveal>
       </Container>
@@ -239,15 +241,15 @@ export default function ProjectsDeck() {
       <Container>
         <Reveal>
           <h2 className="mt-16 text-2xl font-bold text-foreground sm:text-3xl">
-            Personal Projects
+            Research & Foundation
           </h2>
           <p className="mt-2 max-w-xl text-sm text-muted">
-            개인 연구·실험으로 진행한 프로젝트.
+            워게임·CTF 활동과, 취약점 분석의 기반이 된 개발 경험.
           </p>
         </Reveal>
 
-        <CardGroup label="Security" items={security} />
-        <CardGroup label="Embedded & Mobile" items={embedded} />
+        <CardGroup label="Wargame · CTF" items={security} />
+        <CardGroup label="Engineering Foundation" items={embedded} />
 
         <div className="pb-8" />
       </Container>

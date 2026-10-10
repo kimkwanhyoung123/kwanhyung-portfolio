@@ -20,15 +20,19 @@ export default function Hero() {
           </Reveal>
 
           <Reveal delay={0.1}>
-            <h1 className="mt-5 text-3xl font-bold leading-tight text-foreground sm:text-5xl">
+            <h1 className="mt-5 break-keep text-3xl font-bold leading-tight text-foreground sm:text-5xl">
               {profile.headline}
             </h1>
           </Reveal>
 
           <Reveal delay={0.15}>
-            <p className="mx-auto mt-6 max-w-2xl text-muted">
-              {profile.heroParagraphs[0]}
-            </p>
+            <div className="mx-auto mt-6 max-w-2xl space-y-4">
+              {profile.heroParagraphs.map((paragraph) => (
+                <p key={paragraph} className="text-muted">
+                  {paragraph}
+                </p>
+              ))}
+            </div>
           </Reveal>
 
           <Reveal delay={0.2}>

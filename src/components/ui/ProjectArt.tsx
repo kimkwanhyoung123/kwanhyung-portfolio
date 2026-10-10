@@ -629,6 +629,50 @@ function RunningApp() {
   );
 }
 
+/* ---- 11. Product security assessment: trust boundary -> findings -> fix ---- */
+function Pentest() {
+  return (
+    <Base label="상용 제품 인증·라이선스 신뢰 경계 진단">
+      {/* product trust boundary */}
+      <text x="30" y="42" fontFamily={UI} fontSize="10" fill={MUT}>
+        제품 내부 (오프라인 납품 · 서버 검증 없음)
+      </text>
+      <rect x="28" y="52" width="196" height="150" rx="10" fill="none" stroke={LINE} strokeWidth="1.5" strokeDasharray="5 4" />
+      <Node x={44} y={74} w={164} label="Admin 인증정보" sub="해시값 포함" />
+      <Node x={44} y={140} w={164} label="라이선스 검증" sub="MAC Address 단독 신뢰" />
+
+      {/* analysis */}
+      <text x="359" y="64" textAnchor="middle" fontFamily={UI} fontSize="9" fill={DIM}>
+        소스코드 보안 리뷰로 식별
+      </text>
+      <RightArrow y={89} x1={208} x2={266} warn />
+      <RightArrow y={155} x1={208} x2={266} warn />
+
+      {/* findings */}
+      <Node x={266} y={74} w={186} label="내부 분석으로 추출" warn />
+      <Node x={266} y={140} w={186} label="MAC Spoofing 우회" warn />
+
+      {/* reproduction */}
+      <DownArrow x={359} y1={170} y2={200} />
+      <Node x={266} y={200} w={186} label="재현 · PoC 검증" />
+
+      {/* remediation timeline */}
+      <line x1="60" y1="262" x2="420" y2="262" stroke={LINE} strokeWidth="1.5" />
+      {["위협 모델링", "조치 가이드", "TPM · DPAPI 전환"].map((t, i) => (
+        <g key={t}>
+          <circle cx={90 + i * 150} cy="262" r="5" fill={i === 2 ? AC : FILL} stroke={i === 2 ? AC : LINE} strokeWidth="1.5" />
+          <text x={90 + i * 150} y="284" textAnchor="middle" fontFamily={UI} fontSize="9" fill={i === 2 ? AC : MUT}>
+            {t}
+          </text>
+        </g>
+      ))}
+      <text x="60" y="318" fontFamily={UI} fontSize="8.5" fill={DIM}>
+        제품명 · 상세 절차 · PoC는 비공개
+      </text>
+    </Base>
+  );
+}
+
 const ART: Record<string, () => React.ReactElement> = {
   pipeline: Pipeline,
   roi: Roi,
@@ -637,6 +681,7 @@ const ART: Record<string, () => React.ReactElement> = {
   erd: Erd,
   opsflow: OpsFlow,
   authz: Authz,
+  pentest: Pentest,
   ctf: Ctf,
   linetracer: LineTracer,
   runningapp: RunningApp,
