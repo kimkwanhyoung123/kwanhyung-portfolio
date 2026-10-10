@@ -132,19 +132,7 @@ export const contact: ContactContent = {
     "서비스·애플리케이션·시스템 모의해킹(PT), 최신 공격 기법과 공격 시나리오 연구, 발견된 이슈의 조치 가이드라인 작성에 관심이 있습니다.",
     "개발 경험을 바탕으로 코드 수준에서 원인을 추적하고, 실제로 고칠 수 있는 개선안까지 전달하는 보안 엔지니어 포지션에 열려 있습니다.",
   ],
-  links: [
-    { label: "이메일 보내기", href: "mailto:khkims0206@gmail.com" },
-    {
-      label: "GitHub",
-      href: "https://github.com/kimkwanhyoung123",
-      external: true,
-    },
-    {
-      label: "LinkedIn",
-      href: "https://www.linkedin.com/in/kwanhyoungkim",
-      external: true,
-    },
-  ],
+  links: [],
 };
 
 export const companyProjectDisclaimer: CompanyProjectDisclaimer = {
