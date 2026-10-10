@@ -1,6 +1,5 @@
 import type {
   CompanyProjectDisclaimer,
-  ContactContent,
   CoreStrength,
   NumberedItem,
   PlaybookStep,
@@ -125,15 +124,6 @@ export const whatIBring: NumberedItem[] = [
       "보고서에서 끝내지 않고 적용 가능한 개선안을 제시한 뒤 수정 결과를 재검증합니다.",
   },
 ];
-
-export const contact: ContactContent = {
-  title: "모의해킹과 취약점 진단으로 제품을 안전하게 만들고 싶습니다.",
-  paragraphs: [
-    "서비스·애플리케이션·시스템 모의해킹(PT), 최신 공격 기법과 공격 시나리오 연구, 발견된 이슈의 조치 가이드라인 작성에 관심이 있습니다.",
-    "개발 경험을 바탕으로 코드 수준에서 원인을 추적하고, 실제로 고칠 수 있는 개선안까지 전달하는 보안 엔지니어 포지션에 열려 있습니다.",
-  ],
-  links: [],
-};
 
 export const companyProjectDisclaimer: CompanyProjectDisclaimer = {
   ko: "회사 제품을 대상으로 한 진단 내용은 제품명, 상세 공격 절차, PoC 코드와 증거 화면을 공개하지 않고, 담당한 분석 과정과 개선 방향을 중심으로 일반화해 기술했습니다. 사외 버그바운티 건은 책임공개(Responsible Disclosure) 절차를 따릅니다.",

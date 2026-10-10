@@ -8,7 +8,6 @@ import ProjectsDeck from "@/components/sections/ProjectsDeck";
 import Capabilities from "@/components/sections/Capabilities";
 import Playbook from "@/components/sections/Playbook";
 import WhatIBring from "@/components/sections/WhatIBring";
-import Contact from "@/components/sections/Contact";
 
 export default function Home() {
   return (
@@ -23,7 +22,6 @@ export default function Home() {
         <Capabilities />
         <Playbook />
         <WhatIBring />
-        <Contact />
       </main>
       <Footer />
     </>
