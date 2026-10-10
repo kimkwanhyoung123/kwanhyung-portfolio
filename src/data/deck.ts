@@ -37,7 +37,7 @@ export const deckItems: DeckItem[] = [
       validation:
         "동일 입력에 대한 결과 일치와 처리 시간을 기준값과 비교해 검증했습니다.",
       impact:
-        "4개 도구를 오가던 수동 흐름을 단일 연속 처리로 바꿔 처리 시간을 약 20% 단축했습니다.",
+        "4개 도구를 오가던 수동 흐름을 단일 연속 처리로 바꿔 처리 시간을 약 20% 단축했습니다. 본 개발 성과는 「무인기 다중 초분광 센서 영상처리 SW」 특허(2026.07 특허결정)로 이어졌고, 공동발명자로 등재됐습니다.",
       reusableLearning:
         "센서 입력 표준화 규격을 이후 뷰어·시계열 도구에서 공통 기준으로 재사용했습니다.",
     },
@@ -151,13 +151,17 @@ export const deckItems: DeckItem[] = [
     group: "security",
     art: "authz",
     kicker: "개인 프로젝트 · 보안 연구",
-    titleKo: "보안 취약점 분석·제보",
-    titleEn: "Bug Bounty Research",
-    oneLiner: "API·권한 경계를 분석해 재현 가능한 PoC로 제보.",
-    bullets: ["정상 흐름 vs 권한 우회 흐름 비교", "재현 PoC · 기술 보고서"],
-    technologies: ["Web Security", "Authorization", "PoC"],
-    metric: { value: "3건", label: "CVSS High 7.7 포함 · 검토중" },
-    note: "제품명·상세 절차·PoC는 비공개(책임공개 절차).",
+    titleKo: "MetaMask 버그바운티 — 취약점 인정",
+    titleEn: "Bug Bounty · MetaMask (HackerOne)",
+    oneLiner: "글로벌 Web3 지갑 오픈소스를 감사해 찾은 취약점이 유효 인정.",
+    bullets: [
+      "오픈소스 코드베이스 소스코드 감사",
+      "보안 로직 분석 · 로컬 재현 검증",
+      "HackerOne 책임공개 절차 제보 → 보상 획득",
+    ],
+    technologies: ["Source Code Audit", "Web3 / Wallet", "PoC", "HackerOne"],
+    metric: { value: "Bounty", label: "취약점 1건 유효 인정 · 2026.09" },
+    note: "상세 절차와 PoC는 비공개(책임공개 절차).",
   },
 
   /* ---- Personal Projects · Embedded & Mobile ---- */
